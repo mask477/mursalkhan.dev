@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'index'])->name('about');
+Route::get('/projects', [App\Http\Controllers\HomeController::class, 'projects'])->name('projects');
 
 
 Route::get('/mynatur-react-dashboard', [App\Http\Controllers\HomeController::class, 'reactMynaturDashboard'])->name('MyNaturDashboard');

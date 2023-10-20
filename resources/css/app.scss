@@ -1,0 +1,61 @@
+// @import "./variables";
+@import "./theme.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+label,
+input {
+    text-rendering: geometricprecision;
+}
+
+a {
+    color: white;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+}
+
+p {
+    font-size: 14.9px;
+    line-height: 2.3;
+    font-weight: 400;
+}
+
+@include themify($themes) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    label,
+    input {
+        color: themed("article-color");
+        transition: all 1s;
+    }
+    p {
+        color: themed("article-color");
+        transition: all 1s;
+    }
+}
+
+body {
+    &.light {
+        background-color: map-get(map-get($themes, "light"), "bg") !important;
+    }
+    &.dark {
+        background-color: map-get(map-get($themes, "dark"), "bg") !important;
+    }
+}
+
+@import "./header.scss";
+@import "./pages.scss";
+@import "./homepage.scss";
