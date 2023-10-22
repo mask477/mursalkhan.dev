@@ -58,36 +58,36 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function () {
-        console.log(localStorage.getItem('theme'));
-        if(!localStorage.getItem('theme')) {
-            localStorage.setItem('theme', 'dark');
-        }
+    // $(document).ready(function () {
+    //     console.log(localStorage.getItem('theme'));
+    //     if(!localStorage.getItem('theme')) {
+    //         localStorage.setItem('theme', 'dark');
+    //     }
 
-        $('#toggleThemeBtn').click(function() {
-            const currentTheme = localStorage.getItem('theme');
+    //     $('#toggleThemeBtn').click(function() {
+    //         const currentTheme = localStorage.getItem('theme');
 
-            if(currentTheme == 'light') {
-                localStorage.setItem('theme', 'dark');
-                $('body').addClass('dark');
-                $('body').removeClass('light');
-            } else {
-                localStorage.setItem('theme', 'light');
-                $('body').addClass('light');
-                $('body').removeClass('dark');
-            }
+    //         if(currentTheme == 'light') {
+    //             localStorage.setItem('theme', 'dark');
+    //             $('body').addClass('dark');
+    //             $('body').removeClass('light');
+    //         } else {
+    //             localStorage.setItem('theme', 'light');
+    //             $('body').addClass('light');
+    //             $('body').removeClass('dark');
+    //         }
 
-            updateNavbrand(currentTheme);
-        });
-    });
+    //         updateNavbrand(currentTheme);
+    //     });
+    // });
 
-    function updateNavbrand (theme) {
-        console.log('updateNavbrand:', theme)
-        if(theme == 'dark') {
-            $('#navbrandImage').attr('src', `{{ asset('img/mk_logo_white.png') }}`);
-        } else {
-            $('#navbrandImage').attr('src', `{{ asset('img/mk_logo_black.png') }}`);
-        }
-    }
+    // function updateNavbrand (theme) {
+    //     console.log('updateNavbrand:', theme)
+    //     if(theme == 'dark') {
+    //         $('#navbrandImage').attr('src', `{{ asset('img/mk_logo_white.png') }}`);
+    //     } else {
+    //         $('#navbrandImage').attr('src', `{{ asset('img/mk_logo_black.png') }}`);
+    //     }
+    // }
 </script>
 @endpush

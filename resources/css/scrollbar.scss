@@ -1,0 +1,35 @@
+@import "./theme.scss";
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+
+    // .dark & {
+    //     background-color: map-get(map-get($themes, "dark"), "article-color");
+    // }
+    // .light & {
+    //     background-color: map-get(map-get($themes, "light"), "article-color");
+    // }
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: map-get(map-get($themes, "dark"), "article-color");
+    // .dark & {
+    //     background-color: map-get(map-get($themes, "dark"), "article-color");
+    // }
+    // .light & {
+    //     background-color: map-get(map-get($themes, "light"), "article-color");
+    // }
+}
+::-webkit-scrollbar-thumb:hover {
+    .dark & {
+        background-color: map-get(map-get($themes, "dark"), "light-gray");
+    }
+    .light & {
+        background-color: map-get(map-get($themes, "light"), "light-gray");
+    }
+}

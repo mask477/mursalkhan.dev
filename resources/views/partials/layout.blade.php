@@ -23,6 +23,7 @@
 <body class="body dark">
 
     @include('partials.nav')
+    @include('partials.cursor')
     @yield('content')
 
     <!-- jQuery -->
@@ -39,6 +40,7 @@
     </script>
 
     @stack('scripts')
+    @vite(['resources/js/app.js'])
 </body>
 
 </html>
