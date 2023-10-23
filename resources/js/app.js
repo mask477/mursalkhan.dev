@@ -1,11 +1,14 @@
 import "./bootstrap";
 
 let currentTheme = localStorage.getItem("theme");
-let currentAnimationFrame = null;
+let outerlineAnimationFrame = null;
+let innerlineAnimationFrame = null;
 let endX = 0;
 let endY = 0;
-let _x = 0;
-let _y = 0;
+let _ox = 0;
+let _oy = 0;
+let _ix = 0;
+let _iy = 0;
 let delay = 25;
 
 $(document).ready(function () {
@@ -33,13 +36,26 @@ $(document).ready(function () {
 
     $(document).on("mouseenter", "a", function () {
         $(".cursor").addClass("over");
-        console.log("I entered");
-
-        console.log("THIS", $(this));
     });
     $(document).on("mouseleave", "a", function () {
         $(".cursor").removeClass("over");
-        console.log("I left\n");
+    });
+
+    ["h1", "h2", "h3", "h4", "h5"].map((tag) => {
+        $(document).on("mouseenter", tag, function () {
+            $(".cursor").addClass("over-heading");
+        });
+        $(document).on("mouseleave", tag, function () {
+            $(".cursor").removeClass("over-heading");
+        });
+    });
+    ["p", "label", "input"].map((tag) => {
+        $(document).on("mouseenter", tag, function () {
+            $(".cursor").addClass("over-text");
+        });
+        $(document).on("mouseleave", tag, function () {
+            $(".cursor").removeClass("over-text");
+        });
     });
 
     $(document).on("mousemove", function (event) {
@@ -52,11 +68,15 @@ $(document).ready(function () {
         cursorDot.style.top = `${endY}px`;
         cursorDot.style.left = `${endX}px`;
 
-        if (currentAnimationFrame) {
-            cancelAnimationFrame(currentAnimationFrame);
+        if (outerlineAnimationFrame) {
+            cancelAnimationFrame(outerlineAnimationFrame);
         }
-
         updateCursorOutline();
+
+        if (innerlineAnimationFrame) {
+            cancelAnimationFrame(innerlineAnimationFrame);
+        }
+        updateCursorInnerline();
     });
 });
 
@@ -83,8 +103,8 @@ function updateScrollbar(theme) {
 function updateCursorOutline() {
     const cursorDotOutline = document.getElementById("cursorDotOutline");
 
-    _x += (endX - _x) / delay;
-    _y += (endY - _y) / delay;
+    _ox += (endX - _ox) / delay;
+    _oy += (endY - _oy) / delay;
 
     const positionInfo = cursorDotOutline.getBoundingClientRect();
     const body = document.body;
@@ -97,22 +117,54 @@ function updateCursorOutline() {
         html.offsetHeight
     );
     if (endX + positionInfo.width / 2 > window.innerWidth) {
-        _x = window.innerWidth - cursorDotOutline.offsetWidth / 2;
+        _ox = window.innerWidth - cursorDotOutline.offsetWidth / 2;
     }
 
     if (endY + positionInfo.height / 2 > windowHeight) {
-        _y = windowHeight - cursorDotOutline.offsetHeight / 2;
+        _oy = windowHeight - cursorDotOutline.offsetHeight / 2;
     }
 
-    // if (parseInt(_x) != endX) {
-    //     console.log("X:", _x, endX);
+    // if (parseInt(_ox) != endX) {
+    //     console.log("X:", _ox, endX);
     // }
-    // if (parseInt(_y) != endY) {
-    //     console.log("X:", _y, endY);
+    // if (parseInt(_oy) != endY) {
+    //     console.log("X:", _oy, endY);
     // }
 
-    cursorDotOutline.style.top = `${_y}px`;
-    cursorDotOutline.style.left = `${_x}px`;
+    cursorDotOutline.style.top = `${_oy}px`;
+    cursorDotOutline.style.left = `${_ox}px`;
 
-    currentAnimationFrame = window.requestAnimationFrame(updateCursorOutline);
+    outerlineAnimationFrame = window.requestAnimationFrame(updateCursorOutline);
+}
+
+function updateCursorInnerline() {
+    const cursorDotInnerline = document.getElementById("cursorDotInnerline");
+
+    _ix += (endX - _ix) / (delay / 2);
+    _iy += (endY - _iy) / (delay / 2);
+
+    const positionInfo = cursorDotInnerline.getBoundingClientRect();
+    const body = document.body;
+    const html = document.documentElement;
+    const windowHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+    );
+    if (endX + positionInfo.width / 2 > window.innerWidth) {
+        _ix = window.innerWidth - cursorDotInnerline.offsetWidth / 2;
+    }
+
+    if (endY + positionInfo.height / 2 > windowHeight) {
+        _iy = windowHeight - cursorDotInnerline.offsetHeight / 2;
+    }
+
+    cursorDotInnerline.style.top = `${_iy}px`;
+    cursorDotInnerline.style.left = `${_ix}px`;
+
+    innerlineAnimationFrame = window.requestAnimationFrame(
+        updateCursorInnerline
+    );
 }

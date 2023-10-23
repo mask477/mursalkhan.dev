@@ -14,7 +14,7 @@
                             </h1>
                         </div>
 
-                        @for ($i=0; $i<5; $i++) <p>a seasoned developer with a passion for problem-solving and
+                        <p>a seasoned developer with a passion for problem-solving and
                             innovation. With over six years
                             of experience in the tech industry, I thrive on embracing new challenges and discovering
                             their solutions. My expertise spans a wide spectrum, from crafting intuitive user interfaces
@@ -25,12 +25,12 @@
                             not only function flawlessly but also look exceptional. I'm excited to share my journey and
                             insights with you here on my website.</p>
 
-                            <p>Feel free to reach out if you'd like to collaborate or discuss any development projects.
-                                I'm
-                                always eager to dive into new endeavors and contribute my expertise to create impactful
-                                solutions. Thank you for visiting my website, and I look forward to connecting with you!
-                            </p>
-                            @endfor
+                        <p>Feel free to reach out if you'd like to collaborate or discuss any development projects.
+                            I'm
+                            always eager to dive into new endeavors and contribute my expertise to create impactful
+                            solutions. Thank you for visiting my website, and I look forward to connecting with you!
+                        </p>
+
 
                     </article>
 
