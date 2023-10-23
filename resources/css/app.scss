@@ -36,7 +36,11 @@ p {
     h2,
     h3,
     h4,
-    h5,
+    h5 {
+        color: themed("cw");
+        transition: all 1s;
+    }
+
     p,
     a,
     label,
@@ -65,3 +69,4 @@ body {
 @import "./footer.scss";
 @import "./pages.scss";
 @import "./homepage.scss";
+@import "./timeline.scss";

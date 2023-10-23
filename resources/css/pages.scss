@@ -16,7 +16,15 @@
 }
 
 .page-bg-title {
+    &.verticle {
+        h1 {
+            writing-mode: tb-rl;
+        }
+    }
+
     h1 {
+        margin: 0px;
+        padding: 0px;
         font-family: "Abril FatFace";
         font-size: 29.42vmin;
         writing-mode: unset;

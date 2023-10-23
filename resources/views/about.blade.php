@@ -1,6 +1,6 @@
 @extends('partials.layout', [
-"footer_title" => "About Me",
-"footer_url" => route('about')
+"footer_title" => "Lets Continue To My Projects",
+"footer_url" => route('projects')
 ])
 
 @section('content')
@@ -12,22 +12,37 @@
                     <h1 class="title">About Me.</h1>
                     <br>
                     <article>
-                        <p>A seasoned developer with a passion for problem-solving and
-                            innovation. With over six years
-                            of experience in the tech industry, I thrive on embracing new challenges and discovering
-                            their solutions. My expertise spans a wide spectrum, from crafting intuitive user interfaces
-                            to designing robust backend systems, developing mobile applications using React Native, and
-                            creating desktop applications with Electron. I'm swift with languages like JavaScript and
-                            PHP, proficient in a range of frameworks and libraries, including Laravel, React, and
-                            Electron. Beyond code, I have a keen eye for design, ensuring that the projects I undertake
-                            not only function flawlessly but also look exceptional. I'm excited to share my journey and
-                            insights with you here on my website.</p>
+                        <ul class="timeline">
+                            @for($i = 0; $i < 3; $i++) <li class="mt-2">
+                                <a target="_blank" rel="noopener noreferrer" aria-label="Open Github Link"
+                                    href="https://github.com/adenekan41">
+                                    Engineering
 
-                        <p>Feel free to reach out if you'd like to collaborate or discuss any development projects.
-                            I'm
-                            always eager to dive into new endeavors and contribute my expertise to create impactful
-                            solutions. Thank you for visiting my website, and I look forward to connecting with you!
-                        </p>
+                                    <small>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                                            </path>
+                                        </svg>
+                                    </small>
+                                </a>
+                                <a target="_blank" rel="noopener noreferrer" aria-label="Open Github Link"
+                                    id="cardHover" href="https://github.com/adenekan41" class="float-right">
+                                    View Github
+                                </a>
+                                <p>The power of first impressions cannot be underestimated, and the gateway to
+                                    capitalizing on them lies in exceptional website design. An outstanding website
+                                    transcends mere aesthetics and extends its influence to encompass seamless
+                                    functionality and user-friendly navigation. Drawing upon my expertise as a seasoned
+                                    programmer, I possess the unique ability to tackle intricate technical challenges
+                                    while crafting websites that exude sleekness and visual allure. Moreover, my
+                                    extensive knowledge of recognized technical standards is complemented by my
+                                    proficiency in modern building practices, ensuring that every aspect of your website
+                                    is finely tuned to perfection.</p>
+                                </li>
+                                @endfor
+                        </ul>
 
 
                     </article>

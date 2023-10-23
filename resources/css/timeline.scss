@@ -1,0 +1,66 @@
+@import "./theme.scss";
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+
+    &::before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 0px;
+        width: 1px;
+        top: 4px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    li {
+        margin: 3rem 0px;
+        padding-left: 20px;
+
+        &::before {
+            content: " ";
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            left: -7px;
+            width: 15px;
+            height: 15px;
+            margin-top: 3px;
+            z-index: 400;
+        }
+
+        a {
+            small {
+                svg {
+                }
+            }
+        }
+    }
+}
+
+@include themify($themes) {
+    ul.timeline {
+        &::before {
+            background: themed("timeline");
+        }
+
+        li {
+            &::before {
+                background: themed("mark");
+                border: 2px solid themed("cw");
+            }
+
+            a {
+                color: themed("cw");
+                small {
+                    svg {
+                        fill: themed("article-color");
+                    }
+                }
+            }
+        }
+    }
+}

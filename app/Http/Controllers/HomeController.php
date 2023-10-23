@@ -18,6 +18,14 @@ class HomeController extends Controller
     {
         return view("about");
     }
+    public function projects()
+    {
+        return view("projects");
+    }
+    public function contact()
+    {
+        return view("contact");
+    }
 
     public function reactMynaturDashboard()
     {
