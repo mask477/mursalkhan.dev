@@ -7,6 +7,12 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+
+    h1.title {
+        font-weight: 900;
+        margin: 4rem 0rem 1.5rem;
+        position: relative;
+    }
 }
 
 .page-bg-title {
@@ -26,6 +32,11 @@
 }
 
 @include themify($themes) {
+    .page-section {
+        h1.title {
+            font-size: var("font-x-lg");
+        }
+    }
     .page-bg-title {
         h1 {
             color: themed("mark");

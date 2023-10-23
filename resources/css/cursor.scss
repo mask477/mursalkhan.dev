@@ -21,7 +21,8 @@
             z-index: 9222;
             transform: translate(-50%, -50%);
             transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out,
-                width 0.5s ease-in-out, height 0.5s ease-in-out;
+                width 0.5s ease-in-out, height 0.5s ease-in-out,
+                border-radius 0.1s ease-in-out;
         }
 
         .cursor-dot {
@@ -46,8 +47,9 @@
                 width: 0px;
                 height: 0px;
                 opacity: 0 !important;
+                border-radius: 20%;
                 transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
-                    opacity 0.5s ease-in-out;
+                    opacity 0.5s ease-in-out, border-radius 0.1s ease-in-out;
             }
 
             .cursor-dot {
@@ -59,6 +61,13 @@
         }
 
         &.over-text {
+            .cursor-dot-outline {
+                transition: border-radius 0.1s ease-in-out;
+            }
+            .cursor-dot-innerline {
+                border-radius: 20%;
+                transition: border-radius 0.1s ease-in-out;
+            }
             .cursor-dot {
                 width: 2px;
                 height: 15px;
@@ -69,13 +78,17 @@
         }
 
         &.over-heading {
-            .cursor-dot-outerline {
+            .cursor-dot-outline {
                 width: 100px;
                 height: 100px;
+                border-radius: 20%;
+                transition: border-radius 0.1s ease-in-out;
             }
             .cursor-dot-innerline {
                 width: 55px;
                 height: 55px;
+                border-radius: 20%;
+                transition: border-radius 0.1s ease-in-out;
             }
 
             .cursor-dot {

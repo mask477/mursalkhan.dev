@@ -9,14 +9,9 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-10">
+                    <h1 class="title">About Me.</h1>
+                    <br>
                     <article>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <label class="hello">👋</label>
-                            <h1 data-text="I'm Mursal  Khan" class="intro-text" style="opacity: 1; transform: none;">
-                                <mark>I'm Mursal Khan</mark>
-                            </h1>
-                        </div>
-
                         <p>A seasoned developer with a passion for problem-solving and
                             innovation. With over six years
                             of experience in the tech industry, I thrive on embracing new challenges and discovering
