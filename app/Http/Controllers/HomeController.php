@@ -12,9 +12,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $technologies = Technology::with('projects')->get();
-
-        return view("home", compact('technologies'));
+        return view("home");
+    }
+    public function about()
+    {
+        return view("about");
     }
 
     public function reactMynaturDashboard()

@@ -58,7 +58,7 @@ label.hello {
     }
 }
 
-footer {
+.footer {
     svg {
         margin-left: 1rem;
         animation-name: ForwardAnimation;
@@ -69,7 +69,7 @@ footer {
 }
 
 @include themify($themes) {
-    footer {
+    .footer {
         a {
             color: themed("article-color");
             transition: all 1s;

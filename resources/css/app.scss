@@ -2,8 +2,9 @@
 @import "./theme.scss";
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 h1,
@@ -17,6 +18,7 @@ label,
 input {
     text-rendering: geometricprecision;
     transition: all 1s;
+    font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -47,6 +49,7 @@ p {
 }
 
 body {
+    position: relative;
     width: 100vw;
     overflow-x: hidden;
 
@@ -61,5 +64,6 @@ body {
 @import "./header.scss";
 @import "./cursor.scss";
 @import "./scrollbar.scss";
+@import "./footer.scss";
 @import "./pages.scss";
 @import "./homepage.scss";

@@ -41,7 +41,7 @@
         </div>
     </div>
 </section>
-<div title="Mursal Khan" class="page-bg-title">
-    <h1 aria-hidden="true">Mursal Khan</h1>
+<div title="About Me" class="page-bg-title">
+    <h1 aria-hidden="true">About Me</h1>
 </div>
 @endsection

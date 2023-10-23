@@ -12,26 +12,21 @@ let _iy = 0;
 let delay = 25;
 
 $(document).ready(function () {
-    // Theme function
+    console.log("CURRENT TEHEME:", currentTheme);
     if (!localStorage.getItem("theme")) {
         localStorage.setItem("theme", "dark");
     }
+    setCurrentTheme();
 
     $("#toggleThemeBtn").click(function () {
-        if (currentTheme == "light") {
-            currentTheme = "dark";
-            localStorage.setItem("theme", "dark");
-            $("body").addClass("dark");
-            $("body").removeClass("light");
-        } else {
+        if (currentTheme == "dark") {
             currentTheme = "light";
             localStorage.setItem("theme", "light");
-            $("body").addClass("light");
-            $("body").removeClass("dark");
+        } else {
+            currentTheme = "dark";
+            localStorage.setItem("theme", "dark");
         }
-
-        updateNavbrand();
-        updateScrollbar();
+        setCurrentTheme();
     });
 
     $(document).on("mouseenter", "a", function () {
@@ -79,6 +74,23 @@ $(document).ready(function () {
         updateCursorInnerline();
     });
 });
+
+function setCurrentTheme() {
+    if (currentTheme == "dark") {
+        currentTheme = "dark";
+        localStorage.setItem("theme", "dark");
+        $("body").addClass("dark");
+        $("body").removeClass("light");
+    } else {
+        currentTheme = "light";
+        localStorage.setItem("theme", "light");
+        $("body").addClass("light");
+        $("body").removeClass("dark");
+    }
+
+    updateNavbrand();
+    updateScrollbar();
+}
 
 function updateNavbrand(theme) {
     if (theme == "dark") {

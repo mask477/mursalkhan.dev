@@ -1,3 +1,5 @@
+@import "./theme.scss";
+
 .page-section {
     min-height: calc(61vh);
     display: flex;
@@ -5,4 +7,29 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+}
+
+.page-bg-title {
+    h1 {
+        font-family: "Abril FatFace";
+        font-size: 29.42vmin;
+        writing-mode: unset;
+        letter-spacing: -0.3rem;
+        white-space: pre;
+        position: fixed;
+        left: -4rem;
+        opacity: 1;
+        z-index: -1;
+        bottom: 0px;
+        transition: all 1s;
+    }
+}
+
+@include themify($themes) {
+    .page-bg-title {
+        h1 {
+            color: themed("mark");
+            transition: all 1s;
+        }
+    }
 }

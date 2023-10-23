@@ -95,8 +95,11 @@
                     border: 2px solid themed("article-color");
                 }
             }
-            .cursor-dot-outline,
             .cursor-dot-innerline {
+                border: 2px solid themed("gray");
+                box-shadow: inset 0 0 0px 0.5px themed("light-gray");
+            }
+            .cursor-dot-outline {
                 border: 1px solid themed("gray");
                 box-shadow: inset 0 0 0px 0.5px themed("light-gray");
             }
