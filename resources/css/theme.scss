@@ -18,12 +18,9 @@ $themes: (
         sidebar-tag: #13283e,
         sidebar-cta: #3f566e,
         gray-alpha: #07121dd4,
+        gray-dark: #343a40,
         timeline: #ffffff5e,
         nav-link: rgba(255, 255, 255, 0.8),
-        font-sm: 0.875em,
-        font-md: 1.124em,
-        font-x-md: 1.667em,
-        font-x-lg: 3.075em,
     ),
     light: (
         bg: #fffdfc,
@@ -44,15 +41,16 @@ $themes: (
         border-color: #eaeaea,
         sidebar-tag: #efe9e4,
         gray-alpha: #f6f4f06b,
+        gray-dark: #343a40,
         sidebar-cta: #0b0c15,
         nav-link: rgba(0, 0, 0, 0.5),
         timeline: #e0e0e0,
-        font-sm: 0.875em,
-        font-md: 1.124em,
-        font-x-md: 1.667em,
-        font-x-lg: 3.075em,
     ),
 );
+$font-sm: 0.875em;
+$font-md: 1.124em;
+$font-x-md: 1.667em;
+$font-x-lg: 3.075em;
 
 @mixin themify($themes) {
     @each $name, $values in $themes {

@@ -9,6 +9,7 @@
     justify-content: center;
 
     h1.title {
+        font-size: $font-x-lg;
         font-weight: 900;
         margin: 4rem 0rem 1.5rem;
         position: relative;
@@ -42,7 +43,6 @@
 @include themify($themes) {
     .page-section {
         h1.title {
-            font-size: var("font-x-lg");
         }
     }
     .page-bg-title {

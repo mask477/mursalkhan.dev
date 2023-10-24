@@ -1,0 +1,159 @@
+@import "./theme.scss";
+
+.sidebar-modal {
+    .overlay {
+        z-index: 9000;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    aside {
+        width: 34em;
+        height: 100%;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        z-index: 9001;
+        transition: all 0.3s linear 0s;
+        will-change: opacity, transform;
+
+        .container {
+            padding: 0px !important;
+            position: relative;
+            overflow-x: overlay;
+            overflow-y: hidden;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+            .header {
+                padding-inline: 2rem;
+                padding-top: 2rem;
+                padding-bottom: 0.8rem;
+
+                .back-button {
+                    border: none;
+                    background: transparent;
+                    padding-left: 0px;
+                }
+
+                a {
+                    font-size: $font-sm;
+                    font-weight: 900;
+                }
+            }
+
+            .post {
+                padding-top: 2rem;
+                padding-inline: 2rem;
+                overflow-y: auto;
+                flex: 1;
+
+                h3 {
+                    font-size: calc(var($font-x-md) - 6px);
+                    font-weight: 800;
+                }
+
+                p {
+                    font-size: $font-sm;
+
+                    span {
+                        padding: 6px 13px;
+                        border-radius: 4px;
+                        text-transform: capitalize;
+                        font-size: 11px;
+                        margin-right: 6px;
+                        font-weight: 700;
+                    }
+
+                    a {
+                        font-weight: 600;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 11px;
+                }
+
+                h4 {
+                    font-size: $font-md;
+                    margin-top: 2rem;
+                    margin-bottom: 0.8rem;
+
+                    svg {
+                        vertical-align: bottom;
+                        width: 15px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+
+            .footer {
+                width: 100%;
+                left: 0px;
+                bottom: 0px;
+                padding: 17px;
+                color: rgb(255, 255, 255);
+                font-weight: 600;
+                text-align: center;
+                font-size: $font-sm;
+            }
+        }
+    }
+}
+
+@include themify($themes) {
+    .sidebar-modal {
+        aside {
+            background: themed("bg");
+
+            .container {
+                .header {
+                    border-bottom: 1px solid themed("border-color");
+
+                    a {
+                        color: themed("sidebar-cta");
+                    }
+                }
+
+                .post {
+                    h3 {
+                        color: themed("cw");
+                    }
+                    p {
+                        span {
+                            background: themed("sidebar-tag");
+                            color: themed("cw");
+                        }
+
+                        a {
+                            color: var("sidebar-cta");
+                        }
+                    }
+                    img {
+                        background-color: themed("gray-alpha");
+                    }
+
+                    h4 {
+                        color: themed("cw");
+                    }
+
+                    svg {
+                        fill: themed("article-color");
+                    }
+                }
+
+                .footer {
+                    background: themed("sidebar-cta");
+                }
+            }
+        }
+    }
+}

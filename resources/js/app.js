@@ -29,11 +29,13 @@ $(document).ready(function () {
         setCurrentTheme();
     });
 
-    $(document).on("mouseenter", "a", function () {
-        $(".cursor").addClass("over");
-    });
-    $(document).on("mouseleave", "a", function () {
-        $(".cursor").removeClass("over");
+    ["a", ".link"].map((tag) => {
+        $(document).on("mouseenter", tag, function () {
+            $(".cursor").addClass("over");
+        });
+        $(document).on("mouseleave", tag, function () {
+            $(".cursor").removeClass("over");
+        });
     });
 
     ["h1", "h2", "h3", "h4", "h5"].map((tag) => {
@@ -50,6 +52,15 @@ $(document).ready(function () {
         });
         $(document).on("mouseleave", tag, function () {
             $(".cursor").removeClass("over-text");
+        });
+    });
+
+    [".gridcell"].map((tag) => {
+        $(document).on("mouseenter", tag, function () {
+            $(".cursor").addClass("over-gridcell");
+        });
+        $(document).on("mouseleave", tag, function () {
+            $(".cursor").removeClass("over-gridcell");
         });
     });
 
@@ -72,6 +83,14 @@ $(document).ready(function () {
             cancelAnimationFrame(innerlineAnimationFrame);
         }
         updateCursorInnerline();
+    });
+
+    $(".tab-list-item").on("click", function () {
+        $(".tab-list-item").each(function () {
+            $(this).removeClass("active");
+        });
+
+        $(this).addClass("active");
     });
 });
 
@@ -179,4 +198,17 @@ function updateCursorInnerline() {
     innerlineAnimationFrame = window.requestAnimationFrame(
         updateCursorInnerline
     );
+}
+
+function closeProjectSidebar() {
+    const aside = $("aside.fade-in-left");
+
+    if (aside) {
+        $(aside).removeClass("fade-in-left");
+        $(aside).addClass("fade-out-left");
+        $(".sidebar-modal div.overlay").addClass("fade-out");
+        setTimeout(() => {
+            $(".sidebar-modal").remove();
+        }, 500);
+    }
 }

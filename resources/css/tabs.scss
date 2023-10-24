@@ -1,0 +1,44 @@
+@import "./theme.scss";
+
+nav.tabs {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    min-height: 43px;
+
+    .tab-list-item {
+        font-size: calc($font-sm + 0.9px);
+        margin: 0px 1rem 0px 0px;
+        transition: all 0.3s ease 0s;
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+
+        &.active {
+            color: rgb(232, 232, 232) !important;
+            padding: 5px 22px;
+            font-weight: 900 !important;
+        }
+    }
+
+    @media (max-width: 989px) {
+        white-space: nowrap;
+        overflow-x: auto;
+        margin: 0px auto;
+    }
+}
+
+@include themify($themes) {
+    nav.tabs {
+        .tab-list-item {
+            color: themed("article-color");
+            transition: all 0.3s ease 0s;
+
+            &.active {
+                background: themed("gray-dark") !important;
+            }
+        }
+    }
+}

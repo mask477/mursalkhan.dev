@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('project_images', function (Blueprint $table) {
             $table->id();
-            $table->string('url')->unique();
+            $table->string('url');
             $table->unsignedBigInteger('project_id');
             $table->timestamps();
 

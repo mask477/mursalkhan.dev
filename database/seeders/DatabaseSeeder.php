@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Project;
+use App\Models\ProjectImage;
 use App\Models\Technology;
 use Illuminate\Database\Seeder;
 
@@ -18,35 +19,35 @@ class DatabaseSeeder extends Seeder
         $technologies = [
             [
                 "name" => "Angular",
-                "logo" => '/technologies/Angular.png',
+                "logo" => '/uploads/technologies/Angular.png',
             ],
             [
                 "name" => "django",
-                "logo" => '/technologies/django.png',
+                "logo" => '/uploads/technologies/django.png',
             ],
             [
                 "name" => "React",
-                "logo" => '/technologies/React.png',
+                "logo" => '/uploads/technologies/React.png',
             ],
             [
                 "name" => "Next.js",
-                "logo" => '/technologies/Nextjs.png',
+                "logo" => '/uploads/technologies/Nextjs.png',
             ],
             [
                 "name" => "Vue",
-                "logo" => '/technologies/Vue.png',
+                "logo" => '/uploads/technologies/Vue.png',
             ],
             [
                 "name" => "NodeJs",
-                "logo" => '/technologies/Node.png',
+                "logo" => '/uploads/technologies/Node.png',
             ],
             [
                 "name" => "Electron",
-                "logo" => '/technologies/Electron.png',
+                "logo" => '/uploads/technologies/Electron.png',
             ],
             [
                 "name" => "NestJs",
-                "logo" => '/technologies/Nest.png',
+                "logo" => '/uploads/technologies/Nest.png',
             ],
         ];
 
@@ -58,35 +59,75 @@ class DatabaseSeeder extends Seeder
 
         $projects = [
             [
-                "name" => "MyNatur Dashboard",
-                "image" => '/mynatur/dashboard/logo.svg',
-                "url" => '/mynatur/dashboard',
-                "technologies" => [$tech_relations["React"]]
+                "name" => "MyNatur Website",
+                "logo" => '/mynatur/dashboard/logo.svg',
+                "banner" => '/uploads/projects/MyNatur-1.png',
+                "url" => "https://www.mynatur.co/",
+                "technologies" => [$tech_relations["React"], $tech_relations["Next.js"]],
+                "images" => [
+                    '/uploads/projects/MyNatur-2.png',
+                    '/uploads/projects/MyNatur-3.png',
+                    '/uploads/projects/MyNatur-4.png',
+                    '/uploads/projects/MyNatur-5.png',
+                    '/uploads/projects/MyNatur-6.png',
+                ]
             ],
             [
-                "name" => "MyNatur Website",
-                "image" => '/mynatur/dashboard/logo.svg',
-                "url" => "https://www.mynatur.co/",
-                "technologies" => [$tech_relations["React"], $tech_relations["Next.js"]]
+                "name" => "MyNatur Dashboard",
+                "logo" => '/mynatur/dashboard/logo.svg',
+                "banner" => '/uploads/projects/MyNatur-Dashboard-1.png',
+                "url" => '/mynatur/dashboard',
+                "technologies" => [$tech_relations["React"]],
+                "images" => []
+            ],
+            [
+                "name" => "MyNatur Dashboard",
+                "logo" => '/mynatur/dashboard/logo.svg',
+                "banner" => '/uploads/projects/MyNatur-Dashboard-1.png',
+                "url" => '/mynatur/dashboard',
+                "technologies" => [$tech_relations["React"], $tech_relations["NodeJs"], $tech_relations["Electron"]],
+                "images" => []
             ],
         ];
 
-        foreach ($projects as $project) {
-            $new_project = Project::create([
-                "name" => $project["name"],
-                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos distinctio dolores suscipit incidunt, quis deleniti, quas iusto dolor repellat blanditiis! Commodi, obcaecati officia. Architecto inventore doloremque iusto hic dolorem.",
-                "image" => $project["image"],
-                "url" => $project["url"],
-            ]);
+        for ($i = 0; $i < 2; $i++) {
+            foreach ($projects as $project) {
+                $about = "";
 
-            $technologies = $project['technologies'];
+                $paragraphs_count = rand(1, 3);
+                for ($i = 0; $i < $paragraphs_count; $i++) {
+                    $about .= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos distinctio dolores suscipit incidunt, quis deleniti, quas iusto dolor repellat blanditiis! Commodi, obcaecati officia. Architecto inventore doloremque iusto hic dolorem.";
+                    if ($i < $paragraphs_count - 1) {
+                        $about .= "\n";
+                    }
+                }
+                $new_project = Project::create([
+                    "name" => $project["name"],
+                    "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                    "about" => $about,
+                    "banner" => $project["banner"],
+                    "logo" => $project["logo"],
+                    "url" => $project["url"],
+                ]);
 
-            $technology_ids = [];
-            foreach ($technologies as $technology) {
-                $technology_ids[] = $technology->id;
+                if (count($project['images'])) {
+                    foreach ($project['images'] as $image) {
+                        ProjectImage::create([
+                            "url" => $image,
+                            "project_id" => $new_project->id
+                        ]);
+                    }
+                }
+
+                $technologies = $project['technologies'];
+
+                $technology_ids = [];
+                foreach ($technologies as $technology) {
+                    $technology_ids[] = $technology->id;
+                }
+
+                $new_project->technologies()->attach($technology_ids);
             }
-
-            $new_project->technologies()->attach($technology_ids);
         }
     }
 }
