@@ -17,6 +17,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/projects', [App\Http\Controllers\HomeController::class, 'projects'])->name('projects');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
-
+Route::post('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact_form');
 
 Route::get('/mynatur-react-dashboard', [App\Http\Controllers\HomeController::class, 'reactMynaturDashboard'])->name('MyNaturDashboard');

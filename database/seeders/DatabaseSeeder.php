@@ -18,36 +18,34 @@ class DatabaseSeeder extends Seeder
     {
         $technologies = [
             [
-                "name" => "Angular",
-                "logo" => '/uploads/technologies/Angular.png',
+                "name" => "Angular"
             ],
             [
-                "name" => "django",
-                "logo" => '/uploads/technologies/django.png',
+                "name" => "django"
             ],
             [
-                "name" => "React",
-                "logo" => '/uploads/technologies/React.png',
+                "name" => "React"
             ],
             [
-                "name" => "Next.js",
-                "logo" => '/uploads/technologies/Nextjs.png',
+                "name" => "Next.js"
             ],
             [
-                "name" => "Vue",
-                "logo" => '/uploads/technologies/Vue.png',
+                "name" => "Vue"
             ],
             [
-                "name" => "NodeJs",
-                "logo" => '/uploads/technologies/Node.png',
+                "name" => "NodeJs"
             ],
             [
-                "name" => "Electron",
-                "logo" => '/uploads/technologies/Electron.png',
+                "name" => "Electron"
             ],
             [
-                "name" => "NestJs",
-                "logo" => '/uploads/technologies/Nest.png',
+                "name" => "NestJs"
+            ],
+            [
+                "name" => "HTML&CSS"
+            ],
+            [
+                "name" => "Sass"
             ],
         ];
 

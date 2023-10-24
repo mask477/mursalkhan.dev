@@ -17,7 +17,8 @@
                         </span>
                         @foreach ($technologies as $technology)
                         <span class="tab-list-item link" data-tag="{{ $technology->id }}">
-                            <img src="{{ $technology->logo }}" width="15">
+                            @include("partials.logos.".str_replace(".","",$technology->name))
+
                             {{ $technology->name }}
                         </span>
                         @endforeach
@@ -46,7 +47,8 @@
                                     <p class="d-flex flex-wrap">
                                         @foreach ($project->technologies as $technology)
                                         <span class="d-block mb-1">
-                                            <img src="{{ $technology->logo }}" width="10">
+                                            {{-- <img src="{{ $technology->logo }}" width="10"> --}}
+                                            @include("partials.logos.".str_replace(".","",$technology->name))
                                             {{ $technology->name }}
                                         </span>
                                         @endforeach

@@ -1,0 +1,21 @@
+@import "./theme.scss";
+
+svg.logo {
+    width: 32px;
+    height: 32px;
+}
+
+@include themify($themes) {
+    svg.logo {
+        fill: themed("cw");
+        stroke: themed("cw");
+
+        .fill2 {
+            fill: themed("bg");
+        }
+
+        circle {
+            fill: themed("cw");
+        }
+    }
+}

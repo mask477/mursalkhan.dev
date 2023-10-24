@@ -1,13 +1,6 @@
 @import "./theme.scss";
 
-* {
-    cursor: default;
-}
-
 @media (min-width: 989px) {
-    * {
-        cursor: none;
-    }
     .cursor {
         .cursor-dot,
         .cursor-dot-outline,

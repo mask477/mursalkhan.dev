@@ -15,11 +15,15 @@ nav.tabs {
         background: transparent;
         border: none;
         border-radius: 5px;
+        text-align: center;
 
         &.active {
-            color: rgb(232, 232, 232) !important;
             padding: 5px 22px;
             font-weight: 900 !important;
+        }
+
+        svg.logo {
+            margin-bottom: 5px;
         }
     }
 
@@ -37,8 +41,35 @@ nav.tabs {
             transition: all 0.3s ease 0s;
 
             &.active {
-                background: themed("gray-dark") !important;
+                color: themed("bg");
+                background: themed("inverted") !important;
+
+                svg {
+                    fill: themed("bg");
+                    stroke: themed("bg");
+
+                    .fill2 {
+                        fill: themed("cw");
+                    }
+
+                    circle {
+                        fill: themed("bg");
+                    }
+                }
             }
+
+            // svg {
+            //     fill: themed("cw");
+            //     stroke: themed("cw");
+
+            //     .fill2 {
+            //         fill: themed("bg");
+            //     }
+
+            //     circle {
+            //         fill: themed("cw");
+            //     }
+            // }
         }
     }
 }
