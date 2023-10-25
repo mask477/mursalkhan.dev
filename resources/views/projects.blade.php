@@ -3,14 +3,23 @@
 "footer_url" => route('contact')
 ])
 
+@push('stylesheets')
+<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+@endpush
+
 @section('content')
+<div title="Projects" class="page-bg-title verticle">
+    <h1 class="no-highlight" aria-hidden="true">Projects</h1>
+</div>
 <section class="page-section">
     <div class="main-content">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-10">
                     <h1 class="title">Projects.</h1>
+
                     <br>
+
                     <nav class="tabs">
                         <span class="tab-list-item link active" data-tag="0">
                             All
@@ -60,20 +69,36 @@
     </div>
 
 </section>
-
-
-<div title="Projects" class="page-bg-title verticle">
-    <h1 aria-hidden="true">Projects</h1>
-</div>
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 <script>
     $(".gridcell").on('click', function() {
         const project = $(this).data('data');
+        console.log("PROJECTS:", project);
 
+        const {name, description, images, url} = project;
 
-        const {name, description, banner, url} = project;
+        let slider = `
+            <section class="splide" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <ul class="splide__list">
+        `;
+        images.map(image => {
+            slider += `
+                <li class="splide__slide" style="background-image: url('{{ asset('uploads/projects/MyNatur-1r1.png') }}')" ">
+                    <img src="${image.url}" class="img-bg"/>
+                </li>
+            `;
+        })
+            slider += `
+                <li class="splide__slide" data-image="{{ asset('uploads/projects/MyNatur-1r1.png') }}">
+                    <img src="{{ asset('uploads/projects/MyNatur-1r1.png') }}"/>
+                </li>
+            `;
+        slider += `</ul></div></section>`;
+
         const paragraphs = project.about.split("\n");
         let about = "";
         paragraphs.map(paragraph => {
@@ -90,6 +115,10 @@
             $('section.page-section .main-content').append(sidebarHtml);
             $('body').css('height', '100vh');
             $('body').css('overflow-y', 'hidden');
+
+            new Splide('.splide', {
+                type: 'loop'
+            }).mount();
         }
     });
 

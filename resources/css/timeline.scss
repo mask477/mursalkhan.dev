@@ -34,9 +34,15 @@ ul.timeline {
         }
 
         a {
-            small {
-                svg {
-                }
+            @media (max-width: 989px) {
+                display: block;
+                margin-top: 5px;
+                float: none !important;
+            }
+
+            &.float-right {
+                text-decoration: underline;
+                font-size: calc(var(--font-sm) + 0.9px);
             }
         }
     }

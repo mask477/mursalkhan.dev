@@ -4,6 +4,9 @@
 ])
 
 @section('content')
+<div title="About Me" class="page-bg-title">
+    <h1 class="no-highlight" aria-hidden="true">About Me</h1>
+</div>
 <section class="page-section">
     <div class="main-content">
         <div class="container">
@@ -51,7 +54,4 @@
         </div>
     </div>
 </section>
-<div title="About Me" class="page-bg-title">
-    <h1 aria-hidden="true">About Me</h1>
-</div>
 @endsection

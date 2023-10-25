@@ -4,6 +4,9 @@
 ])
 
 @section('content')
+<div title="Contact" class="page-bg-title verticle">
+    <h1 class="no-highlight" aria-hidden="true">Contact</h1>
+</div>
 <section class="page-section">
 
     <div class="main-content">
@@ -49,9 +52,6 @@
     </div>
 </section>
 
-<div title="Contact" class="page-bg-title verticle">
-    <h1 aria-hidden="true">Contact</h1>
-</div>
 @endsection
 
 @push('scripts')

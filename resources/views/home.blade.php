@@ -4,6 +4,9 @@
 ])
 
 @section('content')
+<div title="Mursal Khan" class="page-bg-title fade-in">
+    <h1 class="no-highlight" aria-hidden="true">Mursal Khan</h1>
+</div>
 <section class="page-section">
     <div class="main-content">
         <div class="container">
@@ -43,7 +46,4 @@
         </div>
     </div>
 </section>
-<div title="Mursal Khan" class="page-bg-title fade-in">
-    <h1 aria-hidden="true">Mursal Khan</h1>
-</div>
 @endsection

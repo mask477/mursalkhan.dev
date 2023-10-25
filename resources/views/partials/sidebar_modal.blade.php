@@ -2,7 +2,7 @@
     <div class="overlay fade-in"></div>
 
     <aside class="fade-in-left">
-        <div class="container">
+        <div class="content">
             <div class="d-flex justify-content-between header">
                 <button class="back-button close-project-btn" type="button">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,25 @@
             <div class="post">
                 <h3 class="mt-4">${name}</h3>
                 <p class="mb-4">${description}</p>
-                <img src="${banner}" alt="">
+
+                {{-- <section class="splide" aria-label="Splide Basic HTML Example">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="{{ asset('uploads/projects/MyNatur-1.png') }}" />
+                            </li>
+                            <li class="splide__slide">
+                                <img src="{{ asset('uploads/projects/MyNatur-2.png') }}" />
+                            </li>
+                            <li class="splide__slide">
+                                <img src="{{ asset('uploads/projects/MyNatur-3.png') }}" />
+                            </li>
+                        </ul>
+                    </div>
+                </section> --}}
+
+                ${slider}
+
                 <h4>About</h4>
 
                 ${about}

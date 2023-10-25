@@ -3,8 +3,8 @@
 
 .page-section {
     h1.title {
-        font-size: $font-x-lg;
-        font-weight: 900;
+        font-size: var(--font-x-lg);
+        font-weight: 800;
         margin: 4rem 0rem 1.5rem;
         position: relative;
         animation: FadeIn 1s ease-in-out;
@@ -12,12 +12,6 @@
 }
 
 .page-bg-title {
-    &.verticle {
-        h1 {
-            writing-mode: tb-rl;
-        }
-    }
-
     h1 {
         margin: 0px;
         padding: 0px;
@@ -34,17 +28,19 @@
         transition: all 1s;
         animation: FadeIn 0.5s ease-in-out;
     }
+    &.verticle {
+        h1 {
+            writing-mode: tb-rl;
+        }
+    }
 }
 
 @include themify($themes) {
-    .page-section {
-        h1.title {
-        }
-    }
     .page-bg-title {
         h1 {
             color: themed("mark");
             transition: all 1s;
+            user-select: none;
         }
     }
 }

@@ -15,6 +15,7 @@ $(document).ready(function () {
     console.log("CURRENT TEHEME:", currentTheme);
     if (!localStorage.getItem("theme")) {
         localStorage.setItem("theme", "dark");
+        currentTheme = "dark";
     }
     setCurrentTheme();
 
@@ -40,10 +41,14 @@ $(document).ready(function () {
 
     ["h1", "h2", "h3", "h4", "h5"].map((tag) => {
         $(document).on("mouseenter", tag, function () {
-            $(".cursor").addClass("over-heading");
+            if (!$(this).hasClass("no-highlight")) {
+                $(".cursor").addClass("over-heading");
+            }
         });
         $(document).on("mouseleave", tag, function () {
-            $(".cursor").removeClass("over-heading");
+            if (!$(this).hasClass("no-highlight")) {
+                $(".cursor").removeClass("over-heading");
+            }
         });
     });
     ["p", "label", "input"].map((tag) => {
@@ -70,9 +75,20 @@ $(document).ready(function () {
         endY = pageY;
 
         const cursorDot = document.getElementById("cursorDot");
+        const cursorGradient = document.getElementById("cursorGradient");
+        const body = document.getElementsByTagName("body")[0];
 
         cursorDot.style.top = `${endY}px`;
         cursorDot.style.left = `${endX}px`;
+        let themeColor =
+            currentTheme == "dark"
+                ? "rgba(249, 247, 246, 0.1)"
+                : "rgba(0,0,0,0.2)";
+        const cursorBg = `background: radial-gradient(600px at ${endX}px ${endY}px, ${themeColor}, transparent 100%);`;
+        cursorGradient.style = cursorBg;
+        body.style.backgroundPosition = `${
+            (endX / window.innerHeight) * 100
+        }% 50%`;
 
         if (outerlineAnimationFrame) {
             cancelAnimationFrame(outerlineAnimationFrame);
@@ -108,7 +124,6 @@ function setCurrentTheme() {
     }
 
     updateNavbrand();
-    updateScrollbar();
 }
 
 function updateNavbrand(theme) {
@@ -116,18 +131,6 @@ function updateNavbrand(theme) {
         $("#navbrandImage").attr("src", `{{ asset('img/mk_logo_white.png') }}`);
     } else {
         $("#navbrandImage").attr("src", `{{ asset('img/mk_logo_black.png') }}`);
-    }
-}
-
-function updateScrollbar(theme) {
-    if (theme == "dark") {
-        document.body.style.scrollbarFaceColor = "red";
-        document.body.style.scrollbarArrowColor = "colorname";
-        document.body.style.scrollbarTrackColor = "blue";
-    } else {
-        document.body.style.scrollbarFaceColor = "blue";
-        document.body.style.scrollbarArrowColor = "colorname";
-        document.body.style.scrollbarTrackColor = "red";
     }
 }
 

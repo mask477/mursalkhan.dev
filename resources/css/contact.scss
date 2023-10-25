@@ -20,6 +20,7 @@ article {
         box-shadow: none !important;
         padding: 24px 21px !important;
         animation: FadeIn 0.5s ease-in-out;
+        backdrop-filter: blur(10px);
     }
 
     .g-recaptcha {
@@ -28,7 +29,7 @@ article {
     }
 
     button {
-        font-size: calc($font-sm + 1.1px);
+        font-size: calc(var(--font-sm) + 1.1px);
         border: none;
         border-radius: 5px;
         padding: 15px 40px;

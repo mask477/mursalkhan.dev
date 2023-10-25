@@ -1,0 +1,45 @@
+@import "./theme.scss";
+
+.splide {
+    .splide__track {
+        .splide__list {
+            .splide__slide {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-image: attr("data-image-src");
+                    background-size: cover;
+                    z-index: 10;
+                }
+
+                img {
+                    border-radius: 11px;
+                    object-fit: contain;
+                    z-index: 100;
+                }
+            }
+        }
+    }
+
+    ul.splide__pagination {
+        bottom: -20px !important;
+    }
+}
+
+@include themify($themes) {
+    .splide {
+        ul.splide__pagination {
+            li {
+                .splide__pagination__page {
+                    background-color: themed("sidebar-tag");
+
+                    &.is-active {
+                        background-color: themed("cw");
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

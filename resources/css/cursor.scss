@@ -3,6 +3,18 @@
 
 @media (min-width: 989px) {
     .cursor {
+        #cursorGradient {
+            pointer-events: none;
+            inset: 0;
+            z-index: -1;
+            position: absolute;
+
+            background: radial-gradient(
+                600px at 50% 50%,
+                themed("cursor-gradient"),
+                transparent 100%
+            );
+        }
         .cursor-dot,
         .cursor-dot-outline,
         .cursor-dot-innerline {
