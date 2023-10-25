@@ -22,19 +22,25 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <div class="container">
                     <ul class="navbar-nav">
-                        <li class="nav-item hover_bottom d-block d-md-none">
-                            <a class="nav-link" id="cardHover" aria-label="Go Home" title="Home" href="/">Home</a>
+                        @php
+                        $route_name = Route::current()->getName();
+                        @endphp
+                        <li class="nav-item hover_bottom {{ $route_name == 'home' ? 'd-block d-md-none' : "" }}">
+                            <a class="nav-link" aria-label="Go Home" title="Home" href="/">Home </a>
                         </li>
-                        <li class="nav-item hover_bottom">
-                            <a class="nav-link" id="cardHover" aria-label="Go To About Page" title="About"
-                                href="/about">About</a>
+                        <li class="nav-item hover_bottom {{ $route_name == 'about' ? 'd-block d-md-none' : "" }}">
+                            <a class="nav-link" aria-label="Go To About Page" title="About" href="/about">
+                                About
+                            </a>
                         </li>
-                        <li class="nav-item hover_bottom">
-                            <a class="nav-link is-active" id="cardHover" aria-label="Go To Projects Page"
-                                title="Projects" href="/projects">Projects</a>
+                        <li class="nav-item hover_bottom {{ $route_name == 'projects' ? 'd-block d-md-none' : "" }}">
+                            <a class="nav-link is-active" aria-label="Go To Projects Page" title="Projects"
+                                href="/projects">
+                                Projects
+                            </a>
                         </li>
-                        <li class="nav-item hover_bottom">
-                            <a class="nav-link" id="cardHover" aria-label="Go To Contacts Page" title="Contact"
+                        <li class="nav-item hover_bottom {{ $route_name == 'contact' ? 'd-block d-md-none' : "" }}">
+                            <a class="nav-link" aria-label="Go To Contacts Page" title="Contact"
                                 href="/contact">Contact</a>
                         </li>
                         <li class="nav-item pl-md-3">

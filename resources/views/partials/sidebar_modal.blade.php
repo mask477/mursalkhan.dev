@@ -26,12 +26,11 @@
                 <p class="mb-4">${description}</p>
                 <img src="${banner}" alt="">
                 <h4>About</h4>
-                {{-- <p>about</p> --}}
+
                 ${about}
 
                 <h4>Technologies</h4>
                 <p class="d-flex flex-wrap">
-                    {{-- <span class="d-block mb-1">React</span> --}}
                     ${technologies}
                 </p>
 

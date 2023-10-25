@@ -22,7 +22,6 @@ class HomeController extends Controller
     {
         $projects = Project::with(['images', 'technologies'])->get();
         $technologies = Technology::has('projects')->get();
-        $technologies = Technology::get();
 
         return view("projects", compact('projects', 'technologies'));
     }

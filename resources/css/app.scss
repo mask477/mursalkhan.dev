@@ -27,6 +27,15 @@ input {
 a {
     font-family: "Audiowide", sans-serif;
     font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+        transform: scale(1.15) !important;
+
+        svg {
+            transform: scale(1.5) !important;
+        }
+    }
 }
 
 p {
@@ -70,8 +79,8 @@ body {
 @import "./header.scss";
 @import "./cursor.scss";
 @import "./scrollbar.scss";
-@import "./svg-icons.scss";
 @import "./tabs.scss";
+@import "./svg-icons.scss";
 @import "./sidebar-modal.scss";
 @import "./timeline.scss";
 @import "./footer.scss";

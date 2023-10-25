@@ -158,6 +158,24 @@
     }
 }
 
+@keyframes RotateClockwise {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+@keyframes RotateAntiClockwise {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: -360deg;
+    }
+}
+
 @keyframes ScaleUp {
     0% {
         transform: scale(0);

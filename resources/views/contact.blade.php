@@ -18,7 +18,8 @@
 
                     <br>
 
-                    <form action="{{ env('CONTACT_FORM_ACTION') }}" method="POST" class="contact-form" id="contactForm">
+                    <form action="{{ env('FORM_SPREE_CONTACT_FORM') }}" method="POST" class="contact-form"
+                        id="contactForm">
                         <div class="fields">
                             <div class="field half">
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Name"

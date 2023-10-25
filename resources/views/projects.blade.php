@@ -17,8 +17,6 @@
                         </span>
                         @foreach ($technologies as $technology)
                         <span class="tab-list-item link" data-tag="{{ $technology->id }}">
-                            @include("partials.logos.".str_replace(".","",$technology->name))
-
                             {{ $technology->name }}
                         </span>
                         @endforeach
@@ -41,14 +39,12 @@
                                     srcset="{{ $project->banner }}" src="{{ $project->banner }}">
 
                                 <div class="content">
-                                    <h3>{{ $index }} {{ (($index+1) % 3) == 0 }}- {{ $project->name }}</h3>
+                                    <h3>{{ $project->name }}</h3>
                                     <p>{{ $project->description }}</p>
 
                                     <p class="d-flex flex-wrap">
                                         @foreach ($project->technologies as $technology)
                                         <span class="d-block mb-1">
-                                            {{-- <img src="{{ $technology->logo }}" width="10"> --}}
-                                            @include("partials.logos.".str_replace(".","",$technology->name))
                                             {{ $technology->name }}
                                         </span>
                                         @endforeach
@@ -65,20 +61,28 @@
 
 </section>
 
+
+<div title="Projects" class="page-bg-title verticle">
+    <h1 aria-hidden="true">Projects</h1>
+</div>
 @endsection
 
 @push('scripts')
 <script>
     $(".gridcell").on('click', function() {
         const project = $(this).data('data');
+
+
         const {name, description, banner, url} = project;
         const paragraphs = project.about.split("\n");
-        console.log(paragraphs);
         let about = "";
         paragraphs.map(paragraph => {
             about += `<p>${paragraph}</p>`;
         });
-        const technologies = project.technologies.map(tech => `<span class="d-block mb-1">${tech.name}</span>`);
+
+        let technologies = ``;
+        project.technologies.map(tech => technologies += `<span class="d-block mb-1">${tech.name}</span>`);
+
         const link = `<a href="#">${project.url}</a>`;
         const sidebarHtml = `@include('partials.sidebar_modal')`;
 

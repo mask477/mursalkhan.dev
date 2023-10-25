@@ -29,7 +29,7 @@ $(document).ready(function () {
         setCurrentTheme();
     });
 
-    ["a", ".link"].map((tag) => {
+    ["a", ".link", "button"].map((tag) => {
         $(document).on("mouseenter", tag, function () {
             $(".cursor").addClass("over");
         });
@@ -154,13 +154,6 @@ function updateCursorOutline() {
     if (endY + positionInfo.height / 2 > windowHeight) {
         _oy = windowHeight - cursorDotOutline.offsetHeight / 2;
     }
-
-    // if (parseInt(_ox) != endX) {
-    //     console.log("X:", _ox, endX);
-    // }
-    // if (parseInt(_oy) != endY) {
-    //     console.log("X:", _oy, endY);
-    // }
 
     cursorDotOutline.style.top = `${_oy}px`;
     cursorDotOutline.style.left = `${_ox}px`;
