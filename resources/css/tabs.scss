@@ -7,6 +7,7 @@ nav.tabs {
     -webkit-box-pack: center;
     justify-content: center;
     min-height: 43px;
+    animation: FadeIn 1s ease-in-out;
 
     .tab-list-item {
         font-size: calc($font-sm + 0.9px);

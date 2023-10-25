@@ -3,6 +3,7 @@
 ul.timeline {
     list-style-type: none;
     position: relative;
+    animation: FadeIn 1s ease-in-out;
 
     &::before {
         content: " ";

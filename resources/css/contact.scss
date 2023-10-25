@@ -1,4 +1,9 @@
 @import "./theme.scss";
+@import "./animations.scss";
+
+article {
+    animation: FadeIn 0.5s ease-in-out;
+}
 
 .contact-form {
     width: 60%;
@@ -14,10 +19,12 @@
         resize: none;
         box-shadow: none !important;
         padding: 24px 21px !important;
+        animation: FadeIn 0.5s ease-in-out;
     }
 
     .g-recaptcha {
         margin-bottom: 2rem;
+        animation: FadeIn 1s ease-in-out;
     }
 
     button {
@@ -27,6 +34,7 @@
         padding: 15px 40px;
         margin-bottom: 3rem;
         transition: filter 0.25s ease-in-out;
+        animation: FadeIn 0.5s ease-in-out;
 
         &:hover {
             transition: filter 0.25s ease-in-out;

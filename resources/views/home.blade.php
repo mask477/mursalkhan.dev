@@ -9,10 +9,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-10">
-                    <article>
+                    <article class="fade-in">
                         <div class="d-flex justify-content-center align-items-center">
                             <label class="hello">👋</label>
-                            <h1 data-text="I'm Mursal  Khan" class="intro-text" style="opacity: 1; transform: none;">
+                            <h1 data-text="I'm Mursal  Khan" class="intro-text fade-in"
+                                style="opacity: 1; transform: none;">
                                 <mark>I'm Mursal Khan</mark>
                             </h1>
                         </div>
@@ -28,7 +29,8 @@
                             not only function flawlessly but also look exceptional. I'm excited to share my journey and
                             insights with you here on my website.</p>
 
-                        <p>Feel free to reach out if you'd like to collaborate or discuss any development projects.
+                        <p>Feel free to reach out if you'd like to collaborate or discuss any
+                            development projects.
                             I'm
                             always eager to dive into new endeavors and contribute my expertise to create impactful
                             solutions. Thank you for visiting my website, and I look forward to connecting with you!
@@ -41,7 +43,7 @@
         </div>
     </div>
 </section>
-<div title="Mursal Khan" class="page-bg-title">
+<div title="Mursal Khan" class="page-bg-title fade-in">
     <h1 aria-hidden="true">Mursal Khan</h1>
 </div>
 @endsection

@@ -23,16 +23,15 @@
                         <div class="fields">
                             <div class="field half">
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Name"
-                                    aria-required="true" required="" value="Mursal" />
+                                    aria-required="true" required="" />
                             </div>
                             <div class="field half">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email"
-                                    aria-required="true" required="" value="mask477@gmail.com" />
+                                    aria-required="true" required="" />
                             </div>
                             <div class="field half">
                                 <textarea name="message" id="message" rows="5" class="form-control"
-                                    placeholder="Message" aria-required="true"
-                                    required="">This is a test Message</textarea>
+                                    placeholder="Message" aria-required="true" required=""></textarea>
                             </div>
                         </div>
 
