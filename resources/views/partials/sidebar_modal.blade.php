@@ -60,10 +60,11 @@
                     </svg>
                     Website
                 </h4>
-                <p>
-                    {{-- <a href="#">https://test.com</a> --}}
-                    ${link}
-                </p>
+
+                <div>
+                    <a href="${link}" target="_blank">${link}</a>
+                </div>
+
             </div>
 
             <a href="${url}" class="footer" target="_blank" id="cardHover" rel="noopener noreferrer">Open

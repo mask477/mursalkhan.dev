@@ -25,7 +25,8 @@
                             All
                         </span>
                         @foreach ($technologies as $technology)
-                        <span class="tab-list-item link" data-tag="{{ $technology->id }}">
+                        <span class="tab-list-item link" data-tag="{{ $technology->id }}"
+                            title="{{ $technology->description }}">
                             {{ $technology->name }}
                         </span>
                         @endforeach
@@ -87,28 +88,29 @@
         `;
         images.map(image => {
             slider += `
-                <li class="splide__slide" style="background-image: url('{{ asset('uploads/projects/MyNatur-1r1.png') }}')" ">
-                    <img src="${image.url}" class="img-bg"/>
+                <li class="splide__slide">
+                    <div>
+                        <img src="${image.url}" class="img-bg"/>
+                    </div>
                 </li>
             `;
         })
             slider += `
-                <li class="splide__slide" data-image="{{ asset('uploads/projects/MyNatur-1r1.png') }}">
-                    <img src="{{ asset('uploads/projects/MyNatur-1r1.png') }}"/>
+                <li class="splide__slide">
+                    <div>
+                        <img src="{{ asset('uploads/projects/MyNatur-1r1.png') }}"/>
+                    </div>
                 </li>
             `;
         slider += `</ul></div></section>`;
 
         const paragraphs = project.about.split("\n");
-        let about = "";
-        paragraphs.map(paragraph => {
-            about += `<p>${paragraph}</p>`;
-        });
+        const about = project.about;
 
         let technologies = ``;
-        project.technologies.map(tech => technologies += `<span class="d-block mb-1">${tech.name}</span>`);
+        project.technologies.map(tech => technologies += `<span class="d-block mb-1" title="${tech.description}">${tech.name}</span>`);
 
-        const link = `<a href="#">${project.url}</a>`;
+        const link = project.url;
         const sidebarHtml = `@include('partials.sidebar_modal')`;
 
         if(document.getElementsByClassName('sidebar-modal').length == 0) {

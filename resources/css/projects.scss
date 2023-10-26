@@ -29,21 +29,6 @@
         border-radius: 9px;
         break-inside: avoid;
 
-        // &::before {
-        //     content: "";
-        //     pointer-events: none;
-        //     display: block;
-        //     position: absolute;
-        //     inset: 0px;
-        //     z-index: -1;
-        //     background: radial-gradient(
-        //         circle,
-        //         white 10%,
-        //         whitesmoke 11%,
-        //         whitesmoke 100%
-        //     );
-        // }
-
         &::after {
             content: "";
             pointer-events: none;
