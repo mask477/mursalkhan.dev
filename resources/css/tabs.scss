@@ -2,6 +2,7 @@
 
 nav.tabs {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     min-height: 45px;

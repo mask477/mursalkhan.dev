@@ -234,7 +234,7 @@ class DatabaseSeeder extends Seeder
                 "name" => "Houser",
                 "type" => "Mobile",
                 "description" => "Your app for confident, data-driven property buying decisions.",
-                "logo" => NULL,
+                "logo" => '/uploads/Houser/logo.webp',
                 "banner" => '/uploads/Houser/1.webp',
                 "url" => NULL,
                 "images" => [
@@ -261,7 +261,7 @@ class DatabaseSeeder extends Seeder
                 "name" => "Attorney Needs",
                 "type" => "Web",
                 "description" => "We help you in finding the right attorney for you. Our service is completely free.",
-                "logo" => NULL,
+                "logo" => '/uploads/Attorney Needs/logo.webp',
                 "banner" => '/uploads/Attorney Needs/1.webp',
                 "url" => "https://attorneyneeds.com/",
                 "images" => [

@@ -21,14 +21,14 @@
                     <br>
 
                     <nav class="tabs">
-                        <span class="tab-list-item link active" data-tag="0">
+                        <button class="tab-list-item link active" data-tag="0">
                             All
-                        </span>
+                        </button>
                         @foreach ($technologies as $technology)
-                        <span class="tab-list-item link" data-tag="{{ $technology->id }}"
+                        <button class="tab-list-item link" data-tag="{{ $technology->id }}"
                             title="{{ $technology->description }}">
-                            {{ $technology->name }}
-                        </span>
+                            {{ $technology->name }} ({{ $technology->projects_count }})
+                        </button>
                         @endforeach
                     </nav>
 
