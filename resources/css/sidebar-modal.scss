@@ -62,6 +62,11 @@
 
                 p {
                     font-size: var(--font-sm);
+                    line-height: 1.5em;
+
+                    a {
+                        font-weight: 800;
+                    }
 
                     span {
                         padding: 6px 13px;
@@ -70,6 +75,15 @@
                         font-size: 11px;
                         margin-right: 6px;
                         font-weight: 700;
+                    }
+                }
+
+                ul {
+                    padding-left: 1rem;
+
+                    li {
+                        font-size: var(--font-sm);
+                        margin-bottom: 0.5rem;
                     }
                 }
 
@@ -87,12 +101,14 @@
 
                 .splide {
                     height: 300px;
+
                     border-radius: 11px;
 
                     .splide__slide {
                         div {
                             width: 100%;
                             height: 300px;
+
                             overflow: hidden;
                             border-radius: 11px;
 
@@ -102,10 +118,21 @@
                             }
                         }
                     }
+
+                    &.Mobile {
+                        height: 500px;
+
+                        .splide__slide {
+                            div {
+                                height: 500px;
+                            }
+                        }
+                    }
                 }
 
                 h4 {
                     font-size: var(--font-md);
+                    font-weight: 700;
                     margin-top: 2rem;
                     margin-bottom: 0.8rem;
 
@@ -156,11 +183,22 @@
                         color: themed("cw");
                     }
                     p {
+                        a {
+                            color: themed("cw");
+                        }
+
                         span {
                             background: themed("sidebar-tag");
                             color: themed("cw");
                         }
                     }
+
+                    ul {
+                        li {
+                            color: themed("article-color");
+                        }
+                    }
+
                     a {
                         color: themed("sidebar-cta");
                     }

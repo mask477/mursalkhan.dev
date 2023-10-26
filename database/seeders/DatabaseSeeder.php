@@ -116,16 +116,18 @@ class DatabaseSeeder extends Seeder
         $projects = [
             [
                 "name" => "MyNatur Website",
+                "type" => "Web",
                 "description" => "Track, reduce, and offset the emissions of everything you consume.",
-                "logo" => '/mynatur/dashboard/logo.svg',
-                "banner" => '/uploads/projects/MyNatur-1.png',
+                "logo" => '/uploads/MyNatur Dashboard/logo.webp',
+                "banner" => '/uploads/MyNatur Website/1.webp',
                 "url" => "https://www.mynatur.co/",
                 "images" => [
-                    '/uploads/projects/MyNatur-2.png',
-                    '/uploads/projects/MyNatur-3.png',
-                    '/uploads/projects/MyNatur-4.png',
-                    '/uploads/projects/MyNatur-5.png',
-                    '/uploads/projects/MyNatur-6.png',
+                    '/uploads/MyNatur Website/1.webp',
+                    '/uploads/MyNatur Website/2.webp',
+                    '/uploads/MyNatur Website/3.webp',
+                    '/uploads/MyNatur Website/4.webp',
+                    '/uploads/MyNatur Website/5.webp',
+                    '/uploads/MyNatur Website/6.webp',
                 ],
                 "technologies" => [
                     $technologies["Next.js"]->id,
@@ -139,21 +141,134 @@ class DatabaseSeeder extends Seeder
                     <p>The subsequent week was dedicated to creating a backend to ensure content flexibility, with the client's specific request for a contentful website. Opting for simplicity, I chose Strapi, a user-friendly platform for drag-and-drop functionality, enabling versatile deployment options.</p>
                 ",
             ],
+            [
+                "name" => "MyNatur Dashboard",
+                "type" => "Web",
+                "description" => "Empowering users to calculate their carbon footprint and make environmentally conscious donations to environmental foundations.",
+                "logo" => '/uploads/MyNatur Dashboard/logo.webp',
+                "banner" => '/uploads/MyNatur Dashboard/1.webp',
+                "url" => "https://mursalkhan.dev/mynatur/dashboard/",
+                "images" => [
+                    '/uploads/MyNatur Dashboard/1.webp',
+                    '/uploads/MyNatur Dashboard/2.webp',
+                    '/uploads/MyNatur Dashboard/3.webp',
+                    '/uploads/MyNatur Dashboard/4.webp',
+                    '/uploads/MyNatur Dashboard/5.webp',
+                    '/uploads/MyNatur Dashboard/6.webp',
+                    '/uploads/MyNatur Dashboard/7.webp',
+                    '/uploads/MyNatur Dashboard/8.webp',
+                ],
+                "technologies" => [
+                    $technologies["React"]->id,
+                    $technologies["Bootstrap"]->id,
+                    $technologies["Sass"]->id,
+                    $technologies["AWS"]->id,
+                ],
+                "about" => "
+                <p>This project was conceived to facilitate user donations to environmental foundations. Users sign up and undergo an onboarding process, answering questions related to their house size, travel habits, fuel consumption, dietary choices, pet ownership, and shopping behavior. These responses are utilized to compute the user's carbon footprint, enabling them to gauge the recommended donation amount.</p>
+                <p>The dashboard was constructed using React and employed Ant Design UI components to align with the Figma design specifications. Some components required custom adjustments to achieve design fidelity. State management was accomplished using React Context API.</p>
+                <p>For authentication, AWS Cognito was integrated, and the backend infrastructure was hosted on AWS, utilizing GraphQL for API integration. Payment processing and bank account transaction data retrieval were facilitated through Plaid and Stripe, enhancing the carbon footprint calculation process.</p>
+                ",
+            ],
+            [
+                "name" => "Consolidata",
+                "type" => "Web",
+                "description" => "The Last Reporting Tool You Will Ever Need!",
+                "logo" => '/uploads/Consolidata/logo.webp',
+                "banner" => '/uploads/Consolidata/1.webp',
+                "url" => "https://app.consolidata.ai/",
+                "images" => [
+                    '/uploads/Consolidata/1.webp',
+                    '/uploads/Consolidata/2.webp',
+                    '/uploads/Consolidata/3.webp',
+                    '/uploads/Consolidata/4.webp',
+                ],
+                "technologies" => [
+                    $technologies["Laravel"]->id,
+                    $technologies["Bootstrap"]->id,
+                    $technologies["Sass"]->id,
+                    $technologies["React"]->id,
+                    $technologies["GCP"]->id,
+                ],
+                "about" => "
+                <p>Consolidata: Your Data-Driven Dashboard Solution</p>
+                <p>Consolidata is a versatile online tool designed for the creation of dynamic, interactive dashboard reports. This innovative platform allows users to effortlessly source data from various platforms such as Facebook Marketplace, Google Ads, and GoHighLevel. With its array of automation tools and drag-and-drop widgets, Consolidata streamlines the reporting process, offering a comprehensive integration experience with platforms like Facebook, Google, and GoHighLevel CRM.</p>
+                <p>Originally built on Laravel with Google Sheets integration, the overwhelming demand for custom dashboards prompted a swift response. To meet this need, we seamlessly integrated React into the platform, creating a fully-fledged dashboard feature. The entire dashboard is constructed using React.js, complete with vanilla CSS and drag-and-drop functionality, drawing inspiration from the popular <a href='https://elementor.com/' target='_blank'>Elementor WordPress Plugin</a>.</p>
+                <p>Behind the scenes, Consolidata boasts a sophisticated backend infrastructure, anchored by MySQL as the primary database. A background routine continuously fetches the latest statistics from the user's chosen data sources, ensuring that your dashboards are always up to date with real-time insights.</p>
+                ",
+            ],
+            [
+                "name" => "KhataApp",
+                "type" => "Mobile",
+                "description" => "Your trusted, free, and secure digital solution for simplifying credit book management in Pakistan.",
+                "logo" => "/uploads/KhataApp/logo.webp",
+                "banner" => '/uploads/KhataApp/banner.webp',
+                "url" => "https://khatapp.com/",
+                "images" => [
+                    '/uploads/KhataApp/1.webp',
+                    '/uploads/KhataApp/2.webp',
+                    '/uploads/KhataApp/3.webp',
+                    '/uploads/KhataApp/4.webp',
+                    '/uploads/KhataApp/5.webp',
+                    '/uploads/KhataApp/6.webp',
+                ],
+                "technologies" => [
+                    $technologies["React Native"]->id,
+                    $technologies["SQLite"]->id,
+                    $technologies["AWS"]->id
+                ],
+                "about" => "
+                    <p>Introducing KhataApp: The Ultimate Ledger Management Solution on Your Mobile</p>
+                    <p>KhataApp is an offline first go-to mobile application for efficiently managing both personal and business ledgers, all within the convenience of your smartphone. This powerful tool offers a range of features designed to streamline your ledger management process:</p>
+                    <ul>
+                        <li><b>Collection Reminders:</b> Accelerate credit return with timely WhatsApp reminders.</li>
+                        <li><b>Offline Support:</b> KhataApp is engineered for seamless functionality, even without network connectivity, ensuring uninterrupted usage.</li>
+                        <li><b>Multi-Language Support:</b> Communicate with your customers in their preferred language with Khata available in English, Urdu, Sindhi, Gujrati, Roman, and Pashto.</li>
+                        <li><b>Ledger Maintenance:</b> Easily record and monitor credit transactions extended to your customers.</li>
+                        <li><b>Collaborative Ledger:</b> Share your ledger with colleagues for continuous credit transaction management.</li>
+                    </ul>
+                    <p>KhataApp is built using ReactNative with SQLite as its primary data source. It boasts a two-way synchronization that operates in the background, ensuring data accuracy. The authentication module is powered by AWS Cognito with OTP login, while AWS Cloud functions with DynamoDB provide robust backend support.</p>
+                ",
+            ],
+            [
+                "name" => "Houser",
+                "type" => "Mobile",
+                "description" => "Your app for confident, data-driven property buying decisions.",
+                "logo" => "/uploads/KhataApp/logo.webp",
+                "banner" => '/uploads/KhataApp/banner.webp',
+                "url" => "https://khatapp.com/",
+                "images" => [
+                    '/uploads/KhataApp/1.webp',
+                    '/uploads/KhataApp/2.webp',
+                    '/uploads/KhataApp/3.webp',
+                    '/uploads/KhataApp/4.webp',
+                    '/uploads/KhataApp/5.webp',
+                    '/uploads/KhataApp/6.webp',
+                ],
+                "technologies" => [
+                    $technologies["React Native"]->id,
+                    $technologies["SQLite"]->id,
+                    $technologies["AWS"]->id
+                ],
+                "about" => "
+                    <p>Introducing KhataApp: The Ultimate Ledger Management Solution on Your Mobile</p>
+                    <p>KhataApp is an offline first go-to mobile application for efficiently managing both personal and business ledgers, all within the convenience of your smartphone. This powerful tool offers a range of features designed to streamline your ledger management process:</p>
+                    <ul>
+                        <li><b>Collection Reminders:</b> Accelerate credit return with timely WhatsApp reminders.</li>
+                        <li><b>Offline Support:</b> KhataApp is engineered for seamless functionality, even without network connectivity, ensuring uninterrupted usage.</li>
+                        <li><b>Multi-Language Support:</b> Communicate with your customers in their preferred language with Khata available in English, Urdu, Sindhi, Gujrati, Roman, and Pashto.</li>
+                        <li><b>Ledger Maintenance:</b> Easily record and monitor credit transactions extended to your customers.</li>
+                        <li><b>Collaborative Ledger:</b> Share your ledger with colleagues for continuous credit transaction management.</li>
+                    </ul>
+                    <p>KhataApp is built using ReactNative with SQLite as its primary data source. It boasts a two-way synchronization that operates in the background, ensuring data accuracy. The authentication module is powered by AWS Cognito with OTP login, while AWS Cloud functions with DynamoDB provide robust backend support.</p>
+                ",
+            ],
         ];
 
         foreach ($projects as $project) {
-            $about = "";
-
-            $paragraphs_count = rand(1, 3);
-            for ($i = 0; $i < $paragraphs_count; $i++) {
-                $about .= "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos distinctio dolores suscipit incidunt, quis deleniti, quas iusto dolor repellat blanditiis! Commodi, obcaecati officia. Architecto inventore doloremque iusto hic dolorem.";
-                if ($i < $paragraphs_count - 1) {
-                    $about .= "\n";
-                }
-            }
-
             $new_project = Project::create([
                 "name" => $project["name"],
+                "type" => $project["type"],
                 "description" => $project["description"],
                 "about" => $project["about"],
                 "banner" => $project["banner"],
@@ -172,19 +287,6 @@ class DatabaseSeeder extends Seeder
 
 
             $new_project->technologies()->attach($project["technologies"]);
-
-            // $project_technologies = [];
-
-            // for ($i = 0; $i < rand(2, 4); $i++) {
-            //     $project_technologies[] = $technologies[rand(0, count($technologies) - 1)];
-            // }
-
-            // $technology_ids = [];
-            // foreach ($project_technologies as $technology) {
-            //     $technology_ids[] = $technology->id;
-            // }
-
-            // $new_project->technologies()->attach($technology_ids);
         }
     }
 }

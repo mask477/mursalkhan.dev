@@ -76,7 +76,6 @@ $(document).ready(function () {
 
         const cursorDot = document.getElementById("cursorDot");
         const cursorGradient = document.getElementById("cursorGradient");
-        const body = document.getElementsByTagName("body")[0];
 
         cursorDot.style.top = `${endY}px`;
         cursorDot.style.left = `${endX}px`;
@@ -86,9 +85,6 @@ $(document).ready(function () {
                 : "rgba(0,0,0,0.2)";
         const cursorBg = `background: radial-gradient(600px at ${endX}px ${endY}px, ${themeColor}, transparent 100%);`;
         cursorGradient.style = cursorBg;
-        body.style.backgroundPosition = `${
-            (endX / window.innerHeight) * 100
-        }% 50%`;
 
         if (outerlineAnimationFrame) {
             cancelAnimationFrame(outerlineAnimationFrame);

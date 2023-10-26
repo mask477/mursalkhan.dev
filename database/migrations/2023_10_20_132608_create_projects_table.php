@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('type', ['Web', 'Mobile', "Desktop"])->default('Web');
             $table->string('description');
             $table->text('about');
             $table->string('logo')->nullable();

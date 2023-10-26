@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mynatur/dashboard/static/css/main.17909127.css",
-    "main.js": "/mynatur/dashboard/static/js/main.00bc2845.js",
+    "main.js": "/mynatur/dashboard/static/js/main.a493138c.js",
     "static/media/PingFangSCRegular.ttf": "/mynatur/dashboard/static/media/PingFangSCRegular.8c5ef44dbcdd07d8e5ba.ttf",
     "static/media/pets.svg": "/mynatur/dashboard/static/media/pets.3873eac32acf1762cc2e6e64cfe26132.svg",
     "static/media/signup-house.svg": "/mynatur/dashboard/static/media/signup-house.ab21c2f7509b4250848105054b55fcfd.svg",
@@ -31,10 +31,10 @@
     "static/media/home.svg": "/mynatur/dashboard/static/media/home.d28d4fc51d2b0de8fad8db269f817451.svg",
     "static/media/feed.svg": "/mynatur/dashboard/static/media/feed.50e4a95ede851a80aae1e2f98493a15e.svg",
     "main.17909127.css.map": "/mynatur/dashboard/static/css/main.17909127.css.map",
-    "main.00bc2845.js.map": "/mynatur/dashboard/static/js/main.00bc2845.js.map"
+    "main.a493138c.js.map": "/mynatur/dashboard/static/js/main.a493138c.js.map"
   },
   "entrypoints": [
     "static/css/main.17909127.css",
-    "static/js/main.00bc2845.js"
+    "static/js/main.a493138c.js"
   ]
 }

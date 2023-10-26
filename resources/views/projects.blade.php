@@ -37,22 +37,30 @@
 
                             @foreach ($projects as $index => $project)
                             @php
-                            $heights = ['454','310','400'];
+                            $heights = ['425','400'];
                             $random_height = $heights[rand(0,count($heights)-1)];
+                            if($project->type == "Mobile") {
+                            $random_height = "500";
+                            }
                             @endphp
                             <div class="gridcell scale-up" aria-label="{{ $project->description }}"
                                 style="height:{{ $random_height }}px" data-data="{{ json_encode($project) }}"
                                 data-tags="{{ json_encode($project->technologies->pluck('id')) }}">
 
-
                                 <img alt="{{ $project->banner }}" class="banner" loading="lazy" width="500" height="500"
                                     srcset="{{ $project->banner }}" src="{{ $project->banner }}">
 
                                 <div class="content">
+                                    @if($project->logo)
+                                    <img src="{{ $project->logo }}" width="100" alt="{{ $project->name }} logo">
+                                    @endif
                                     <h3>{{ $project->name }}</h3>
                                     <p>{{ $project->description }}</p>
 
                                     <p class="d-flex flex-wrap">
+                                        <span class="d-block mb-1">
+                                            {{ $project->type }} Application
+                                        </span>
                                         @foreach ($project->technologies as $technology)
                                         <span class="d-block mb-1">
                                             {{ $technology->name }}
@@ -79,10 +87,10 @@
         const project = $(this).data('data');
         console.log("PROJECTS:", project);
 
-        const {name, description, images, url} = project;
+        const {name, description, images, url, type} = project;
 
         let slider = `
-            <section class="splide" aria-label="Splide Basic HTML Example">
+            <section class="splide ${type}" aria-label="Splide Basic HTML Example">
                 <div class="splide__track">
                     <ul class="splide__list">
         `;
@@ -95,13 +103,6 @@
                 </li>
             `;
         })
-            slider += `
-                <li class="splide__slide">
-                    <div>
-                        <img src="{{ asset('uploads/projects/MyNatur-1r1.png') }}"/>
-                    </div>
-                </li>
-            `;
         slider += `</ul></div></section>`;
 
         const paragraphs = project.about.split("\n");

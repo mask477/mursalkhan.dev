@@ -22,7 +22,7 @@
             </div>
 
             <div class="post">
-                <h3 class="mt-4">${name}</h3>
+                <h3>${name}</h3>
                 <p class="mb-4">${description}</p>
 
                 {{-- <section class="splide" aria-label="Splide Basic HTML Example">
