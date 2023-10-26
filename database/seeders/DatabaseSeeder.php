@@ -234,33 +234,57 @@ class DatabaseSeeder extends Seeder
                 "name" => "Houser",
                 "type" => "Mobile",
                 "description" => "Your app for confident, data-driven property buying decisions.",
-                "logo" => "/uploads/KhataApp/logo.webp",
-                "banner" => '/uploads/KhataApp/banner.webp',
-                "url" => "https://khatapp.com/",
+                "logo" => NULL,
+                "banner" => '/uploads/Houser/1.webp',
+                "url" => NULL,
                 "images" => [
-                    '/uploads/KhataApp/1.webp',
-                    '/uploads/KhataApp/2.webp',
-                    '/uploads/KhataApp/3.webp',
-                    '/uploads/KhataApp/4.webp',
-                    '/uploads/KhataApp/5.webp',
-                    '/uploads/KhataApp/6.webp',
+                    '/uploads/Houser/1.webp',
+                    '/uploads/Houser/2.webp',
+                    '/uploads/Houser/3.webp',
+                    '/uploads/Houser/4.webp',
                 ],
                 "technologies" => [
                     $technologies["React Native"]->id,
-                    $technologies["SQLite"]->id,
-                    $technologies["AWS"]->id
+                    $technologies["Firebase"]->id,
                 ],
                 "about" => "
-                    <p>Introducing KhataApp: The Ultimate Ledger Management Solution on Your Mobile</p>
-                    <p>KhataApp is an offline first go-to mobile application for efficiently managing both personal and business ledgers, all within the convenience of your smartphone. This powerful tool offers a range of features designed to streamline your ledger management process:</p>
-                    <ul>
-                        <li><b>Collection Reminders:</b> Accelerate credit return with timely WhatsApp reminders.</li>
-                        <li><b>Offline Support:</b> KhataApp is engineered for seamless functionality, even without network connectivity, ensuring uninterrupted usage.</li>
-                        <li><b>Multi-Language Support:</b> Communicate with your customers in their preferred language with Khata available in English, Urdu, Sindhi, Gujrati, Roman, and Pashto.</li>
-                        <li><b>Ledger Maintenance:</b> Easily record and monitor credit transactions extended to your customers.</li>
-                        <li><b>Collaborative Ledger:</b> Share your ledger with colleagues for continuous credit transaction management.</li>
-                    </ul>
-                    <p>KhataApp is built using ReactNative with SQLite as its primary data source. It boasts a two-way synchronization that operates in the background, ensuring data accuracy. The authentication module is powered by AWS Cognito with OTP login, while AWS Cloud functions with DynamoDB provide robust backend support.</p>
+                    <p>
+                    The Houser is a versatile mobile application that empowers users to evaluate and rank properties based on their unique preferences. By answering a customized set of property-related questions, you can determine your property's score. You have the flexibility to create your own set of questions and assign scores to each option, allowing for a tailored and informative property assessment.
+                    </p>
+                    <p>
+                    This serverless React Native app leverages Firebase as its data source and authentication platform. Notably, the project began without predefined UI/UX designs, resulting in an on-the-fly design process as new screens were developed to complete the application's flow. The Houser app is your key to making well-informed property decisions based on your individual needs and priorities.
+                    </p>
+
+                ",
+            ],
+            [
+                "name" => "Attorney Needs",
+                "type" => "Web",
+                "description" => "We help you in finding the right attorney for you. Our service is completely free.",
+                "logo" => NULL,
+                "banner" => '/uploads/Attorney Needs/1.webp',
+                "url" => "https://attorneyneeds.com/",
+                "images" => [
+                    '/uploads/Attorney Needs/1.webp',
+                    '/uploads/Attorney Needs/2.webp',
+                    '/uploads/Attorney Needs/3.webp',
+                    '/uploads/Attorney Needs/4.webp',
+                    '/uploads/Attorney Needs/5.webp',
+                    '/uploads/Attorney Needs/6.webp',
+                    '/uploads/Attorney Needs/7.webp',
+                ],
+                "technologies" => [
+                    $technologies["Wordpress"]->id,
+                    $technologies["Bootstrap"]->id,
+                ],
+                "about" => "
+                    <p>
+                    The Houser is a versatile mobile application that empowers users to evaluate and rank properties based on their unique preferences. By answering a customized set of property-related questions, you can determine your property's score. You have the flexibility to create your own set of questions and assign scores to each option, allowing for a tailored and informative property assessment.
+                    </p>
+                    <p>
+                    This serverless React Native app leverages Firebase as its data source and authentication platform. Notably, the project began without predefined UI/UX designs, resulting in an on-the-fly design process as new screens were developed to complete the application's flow. The Houser app is your key to making well-informed property decisions based on your individual needs and priorities.
+                    </p>
+
                 ",
             ],
         ];
