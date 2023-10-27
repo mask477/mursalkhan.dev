@@ -18,7 +18,9 @@ class ProjectController extends Controller
     {
         $projects = Project::with('technologies')->get();
 
-        return response()->json($projects);
+        return view('dashboard.project.index', [
+            "projects" => $projects
+        ]);
     }
 
     /**

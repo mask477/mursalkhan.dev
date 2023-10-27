@@ -26,5 +26,6 @@ Route::get('/mynatur-react-dashboard', [App\Http\Controllers\HomeController::cla
 Auth::routes(['register' => false]);
 Route::middleware([Authenticate::class])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
-    Route::resource('projects', App\Http\Controllers\ProjectController::class);
+    Route::resource('project', App\Http\Controllers\ProjectController::class);
+    Route::resource('technology', App\Http\Controllers\TechnologyController::class);
 });

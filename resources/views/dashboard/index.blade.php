@@ -7,10 +7,10 @@
     <hr>
     <ul>
         <li>
-            <a href="{{ route('projects.index') }}">Projects</a>
+            <a href="{{ route('project.index') }}">Projects</a>
         </li>
         <li>
-            <a href="{{ route('projects.index') }}">Technologies</a>
+            <a href="{{ route('technology.index') }}">Technologies</a>
         </li>
     </ul>
 </div>

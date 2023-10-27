@@ -14,9 +14,3 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::middleware([Api::class])->group(function () {
-    Route::resource('projects', App\Http\Controllers\ProjectController::class)->only([
-        'index', 'show', 'store', 'update', 'destroy'
-    ]);
-});
