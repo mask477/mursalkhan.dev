@@ -22,12 +22,17 @@
 
                     <nav class="tabs">
                         <button class="tab-list-item link active" data-tag="0">
-                            All
+                            <div>
+                                All <span class="badge">{{ count($projects) }}</span>
+                            </div>
                         </button>
                         @foreach ($technologies as $technology)
                         <button class="tab-list-item link" data-tag="{{ $technology->id }}"
                             title="{{ $technology->description }}">
-                            {{ $technology->name }} ({{ $technology->projects_count }})
+                            <div>
+                                {{ $technology->name }} <span class="badge">{{ $technology->projects_count
+                                    }}</span>
+                            </div>
                         </button>
                         @endforeach
                     </nav>
@@ -47,12 +52,14 @@
                                 style="height:{{ $random_height }}px" data-data="{{ json_encode($project) }}"
                                 data-tags="{{ json_encode($project->technologies->pluck('id')) }}">
 
-                                <img alt="{{ $project->banner }}" class="banner" loading="lazy" width="500" height="500"
-                                    srcset="{{ $project->banner }}" src="{{ $project->banner }}">
+                                <img alt="{{ $project->banner }}" class="banner" {{ $index < 2 ? 'loading="lazy"' : ""
+                                    }} width="500" height="500" srcset="{{ $project->banner }}"
+                                    src="{{ $project->banner }}">
 
                                 <div class="content">
                                     @if($project->logo)
-                                    <img src="{{ $project->logo }}" width="100" alt="{{ $project->name }} logo">
+                                    <img src="{{ $project->logo }}" width="100" heigth="100"
+                                        alt="{{ $project->name }} logo">
                                     @endif
                                     <h3>{{ $project->name }}</h3>
                                     <p>{{ $project->description }}</p>

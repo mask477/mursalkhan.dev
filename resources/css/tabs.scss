@@ -29,6 +29,22 @@ nav.tabs {
             padding: 5px 22px;
             font-weight: 900 !important;
         }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+
+            span.badge {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+            }
+        }
     }
 }
 
@@ -53,6 +69,20 @@ nav.tabs {
                     circle {
                         fill: themed("bg");
                     }
+                }
+
+                div {
+                    span.badge {
+                        color: themed("cw") !important;
+                        background-color: themed("bg") !important;
+                    }
+                }
+            }
+
+            div {
+                span.badge {
+                    color: themed("bg") !important;
+                    background-color: themed("article-color") !important;
                 }
             }
         }

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->enum('type', ['Web', 'Mobile', "Desktop"])->default('Web');
             $table->string('description');
             $table->text('about');
             $table->string('logo')->nullable();
-            $table->string('banner');
+            $table->string('banner')->nullable();
             $table->string('url')->nullable();
             $table->timestamps();
         });

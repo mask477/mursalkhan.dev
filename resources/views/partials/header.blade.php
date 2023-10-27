@@ -23,7 +23,10 @@
                 <div class="container">
                     <ul class="navbar-nav">
                         @php
+                        $route_name = '';
+                        if(Route::current()) {
                         $route_name = Route::current()->getName();
+                        }
                         @endphp
                         <li class="nav-item hover_bottom {{ $route_name == 'home' ? 'd-block d-md-none' : "" }}">
                             <a class="nav-link" aria-label="Go Home" title="Home" href="/">Home </a>

@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Project;
 use App\Models\ProjectImage;
 use App\Models\Technology;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $user = User::create([
+            "name" => "Admin",
+            "email" => "admin@mursalkhan.dev",
+            "password" => bcrypt("Karachi@90"),
+        ]);
+
         $tech = [
             [
                 "name" => "Angular",

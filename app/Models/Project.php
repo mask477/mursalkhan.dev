@@ -11,6 +11,16 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'type',
+        'description',
+        'about',
+        'logo',
+        'banner',
+        'url'
+    ];
+
     /**
      * Get all of the images for the Project
      *
