@@ -2,16 +2,6 @@
 
 @push('stylesheets')
 <style>
-    .card-img-top {
-        width: 100%;
-        height: 250px !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        object-fit: contain
-    }
-
     .carousel-item {
         height: 400px;
         width: 100%;
@@ -30,7 +20,6 @@
         left: 0;
         z-index: 2;
         margin-bottom: 5rem;
-        margin-inline: 40%;
     }
 </style>
 
@@ -40,23 +29,23 @@
 
 <div class="col-md-8">
     <div class="card">
-        <div class="card-img-top bg-secondary">
-            @if($project->banner)
-            <img src="{{ $project->banner }}" class="card-img-top" alt="...">
-            @endif
-        </div>
         <div class="card-body">
             <h1 class="card-title mb-4">
                 {{ $project->name }}
             </h1>
 
+            <h5 class="card-title">
+                Banner
+            </h5>
+            @if($project->banner)
+            <div class="bg-secondary mb-3">
+                <img src="{{ $project->banner }}" class="card-img-top" alt="...">
+            </div>
+            @endif
             <form action="{{ route('project.uploadBanner', $project->id) }}" method="POST" enctype="multipart/form-data"
                 class="upload-banner-form">
                 @csrf
-                <h5 class="card-title">
-                    Banner
-                </h5>
-                <div class="row align-items-center">
+                <div class="row justify-content-between gap-2">
                     <div class="col-md-8">
                         <input class="form-control" name="banner" type="file" id="formFile" required />
                         @error('banner')
@@ -65,7 +54,7 @@
                         </div>
                         @enderror
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <button class="btn btn-primary w-100">Upload Banner</button>
                     </div>
                 </div>
@@ -87,14 +76,18 @@
                 <div class="carousel-inner">
                     @foreach ($project->images as $index => $image)
                     <div class="carousel-item {{ $index==0 ? 'active' : "" }}">
-                        <img src="{{ $image->url }}" class="d-block w-100" alt="...">
                         <form action="{{ route('project.removeImage', $project->id) }}" method="POST"
                             onsubmit="return confirm('Do you really want to delete this image?');">
                             @csrf
                             @method('delete')
                             <input type="hidden" name="image" value="{{ $image->id }}" />
-                            <button class="btn btn-danger w-100">Delete Image</button>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 col-sm-8">
+                                    <button class="btn btn-danger w-100">Delete Image</button>
+                                </div>
+                            </div>
                         </form>
+                        <img src="{{ $image->url }}" class="d-block w-100" alt="...">
                     </div>
                     @endforeach
                 </div>
@@ -113,8 +106,8 @@
             <form action="{{ route('project.uploadImage', $project->id) }}" method="POST" enctype="multipart/form-data"
                 class="upload-banner-form">
                 @csrf
-                <div class="row align-items-center mb-3">
-                    <div class="col-md-12">
+                <div class="row justify-content-between gap-2">
+                    <div class="col-md-8">
                         <input class="form-control @error('image') is-invalid @enderror" name="image" type="file"
                             id="formFile" required />
                         @error('image')
@@ -123,9 +116,9 @@
                         </div>
                         @enderror
                     </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary">Upload Image</button>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary w-100">Upload Image</button>
+                    </div>
                 </div>
             </form>
             <hr>
