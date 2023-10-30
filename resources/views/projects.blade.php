@@ -149,8 +149,7 @@
             $(".sidebar-modal div.overlay").addClass("fade-out");
             setTimeout(() => {
                 $(".sidebar-modal").remove();
-                $('body').css('max-height', 'auto');
-                $('body').css('overflow-y', 'auto');
+                $('body').attr('style', '');
             }, 500);
         }
     }

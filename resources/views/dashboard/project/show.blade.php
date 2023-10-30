@@ -1,25 +1,133 @@
 @extends('layouts.app')
 
+@push('stylesheets')
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 250px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        object-fit: contain
+    }
+
+    .carousel-item {
+        height: 400px;
+        width: 100%;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .carousel-item form {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        margin-bottom: 5rem;
+        margin-inline: 40%;
+    }
+</style>
+
+@endpush
+
 @section('content')
 
-<div class="col-md-10">
+<div class="col-md-8">
     <div class="card">
-        @if($project->banner)
-        <img src="{{ $project->banner }}" class="card-img-top" alt="...">
-        @else
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false" style="user-select: none;
-            text-anchor: middle;">
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                No Banner
-            </text>
-        </svg>
-        @endif
+        <div class="card-img-top bg-secondary">
+            @if($project->banner)
+            <img src="{{ $project->banner }}" class="card-img-top" alt="...">
+            @endif
+        </div>
         <div class="card-body">
-            <h3 class="card-title">
+            <h1 class="card-title mb-4">
                 {{ $project->name }}
-            </h3>
+            </h1>
+
+            <form action="{{ route('project.uploadBanner', $project->id) }}" method="POST" enctype="multipart/form-data"
+                class="upload-banner-form">
+                @csrf
+                <h5 class="card-title">
+                    Banner
+                </h5>
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <input class="form-control" name="banner" type="file" id="formFile" required />
+                        @error('banner')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary w-100">Upload Banner</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
+
+            <h5 class="card-title">
+                Images
+            </h5>
+            @if(count($project->images))
+            <div id="carouselIndicators" class="carousel slide bg-secondary mb-3">
+                <div class="carousel-indicators">
+                    @foreach ($project->images as $index => $image)
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ $index }}"
+                        class="{{ $index==0 ? 'active' : "" }}" aria-current="true"
+                        aria-label="Slide {{ $index+1 }}"></button>
+                    @endforeach
+                </div>
+                <div class="carousel-inner">
+                    @foreach ($project->images as $index => $image)
+                    <div class="carousel-item {{ $index==0 ? 'active' : "" }}">
+                        <img src="{{ $image->url }}" class="d-block w-100" alt="...">
+                        <form action="{{ route('project.removeImage', $project->id) }}" method="POST"
+                            onsubmit="return confirm('Do you really want to delete this image?');">
+                            @csrf
+                            @method('delete')
+                            <input type="hidden" name="image" value="{{ $image->id }}" />
+                            <button class="btn btn-danger w-100">Delete Image</button>
+                        </form>
+                    </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            @endif
+            <form action="{{ route('project.uploadImage', $project->id) }}" method="POST" enctype="multipart/form-data"
+                class="upload-banner-form">
+                @csrf
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-12">
+                        <input class="form-control @error('image') is-invalid @enderror" name="image" type="file"
+                            id="formFile" required />
+                        @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary">Upload Image</button>
+                </div>
+            </form>
             <hr>
 
             <h5 class="card-title">Description</h5>
@@ -30,8 +138,6 @@
             <p class="card-text">{!! $project->about !!}</p>
             <hr>
 
-
-
             <h5 class="card-title">URL:</h5>
             <p class="card-text">
                 @if($project->url)
@@ -40,6 +146,17 @@
                 No URL
                 @endif
             </p>
+
+
+            <hr>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <button class="btn btn-primary w-100">Edit</button>
+                </div>
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <button class="btn btn-danger w-100">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

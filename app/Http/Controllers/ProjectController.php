@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\ProjectImage;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -66,32 +67,6 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('project.show', $project->id);
-
-        $validation = Validator::make(request()->all(), [
-            'name' => ['required', 'unique:projects,name'],
-            'type' => ['required', 'in:Web,Mobile,Desktop'],
-            'description' => ['required'],
-            'about' => ['required'],
-            // 'logo' => FileValidator::types(['png', 'webp'])->max(1024),
-            // 'banner' => ['required', FileValidator::types(['png', 'webp'])->max(1024)],
-            'url' => ['required', 'url:https'],
-            'technologies' => ['required', "min:1"],
-            'technologies.*' => ['exists:technologies,id'],
-            // 'images' => ['required', "min:1"],
-            // 'images.*' => [FileValidator::types(['png', 'webp'])->max(1024)],
-        ]);
-
-        // if (request()->has('banner')) {
-        //     $filename = "banner." . request()->banner->extension();
-        //     request()->banner->move(public_path($public_directory_path), $filename);
-        // }
-
-        // if (request()->has('logo')) {
-        //     $filename = "logo." . request()->logo->extension();
-        //     request()->logo->move(public_path($public_directory_path), $filename);
-        // }
-
-        return response()->json($project);
     }
 
     /**
@@ -104,6 +79,89 @@ class ProjectController extends Controller
         return view('dashboard.project.show', [
             'project' => $project
         ]);
+    }
+
+    /**
+     * Upload banner image for the project.
+     */
+    public function uploadBanner(string $id)
+    {
+        $project = Project::with('technologies', 'images')->findOrFail($id);
+
+        $this->validate(request(), [
+            'banner' => ['required', FileValidator::types(['png', 'webp'])->max(1024)],
+            // 'logo' => FileValidator::types(['png', 'webp'])->max(1024),
+        ]);
+
+        $public_directory_path = "uploads/" . $project->name;
+        if (!file_exists(public_path($public_directory_path))) {
+            $path = public_path($public_directory_path);
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+
+        $filename = "banner." . request()->banner->extension();
+        request()->banner->move(public_path($public_directory_path), $filename);
+
+        $project->banner = asset($public_directory_path . '/' . $filename);
+        $project->save();
+
+        return redirect()->route('project.show', $project->id);
+    }
+
+    /**
+     * Upload banner image for the project.
+     */
+    public function uploadImage(string $id)
+    {
+        $project = Project::with('images')->findOrFail($id);
+
+        $this->validate(request(), [
+            'image' => ['required', FileValidator::types(['png', 'webp'])->max(1024)],
+        ]);
+
+        $public_directory_path = "uploads/" . $project->name;
+        if (!file_exists(public_path($public_directory_path))) {
+            $path = public_path($public_directory_path);
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+
+        $filename = time() . '.' . request()->image->extension();
+        request()->image->move(public_path($public_directory_path), $filename);
+
+        $project_image = ProjectImage::create([
+            'url' => asset($public_directory_path . '/' . $filename),
+            'project_id' => $project->id,
+        ]);
+
+        return redirect()->route('project.show', $project->id);
+    }
+
+    /**
+     * Upload banner image for the project.
+     */
+    public function removeImage(string $id)
+    {
+        $project = Project::with('images')->findOrFail($id);
+
+        $this->validate(request(), [
+            'image' => ['required', 'exists:project_images,id'],
+        ]);
+
+        $project_image = ProjectImage::findOrFail(request()->image);
+
+        $filename = explode("/", $project_image->url);
+        $filename = $filename[count($filename) - 1];
+
+        $public_directory_path = "uploads/" . $project->name;
+        $file_path = $public_directory_path . '/' . $filename;
+
+        if (file_exists(public_path($file_path))) {
+            File::delete($file_path);
+        }
+
+        $project_image->delete();
+
+        return redirect()->route('project.show', $project->id);
     }
 
     /**
