@@ -18,11 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('technologies')->get();
-
-        return view('dashboard.project.index', [
-            "projects" => $projects
-        ]);
+        return redirect()->route("dashboard");
     }
 
     public function create()
@@ -82,6 +78,32 @@ class ProjectController extends Controller
     }
 
     /**
+     * Upload logo image for the project.
+     */
+    public function uploadLogo(string $id)
+    {
+        $project = Project::findOrFail($id);
+
+        $this->validate(request(), [
+            'logo' => ['required', FileValidator::types(['png', 'webp'])->max(1024)],
+        ]);
+
+        $public_directory_path = "uploads/" . $project->name;
+        if (!file_exists(public_path($public_directory_path))) {
+            $path = public_path($public_directory_path);
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+
+        $filename = "logo." . request()->logo->extension();
+        request()->logo->move(public_path($public_directory_path), $filename);
+
+        $project->logo = asset($public_directory_path . '/' . $filename);
+        $project->save();
+
+        return redirect()->route('project.show', $project->id);
+    }
+
+    /**
      * Upload banner image for the project.
      */
     public function uploadBanner(string $id)
@@ -109,7 +131,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Upload banner image for the project.
+     * Upload image for the project.
      */
     public function uploadImage(string $id)
     {
@@ -137,7 +159,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Upload banner image for the project.
+     * Delete image for the project.
      */
     public function removeImage(string $id)
     {
@@ -165,11 +187,48 @@ class ProjectController extends Controller
     }
 
     /**
+     * Edit specific resource.
+     */
+    public function edit(string $id)
+    {
+        $project = Project::with('technologies')->findOrFail($id);
+        $technologies = Technology::all();
+
+        return view("dashboard.project.edit", [
+            "project" => $project,
+            "technologies" => $technologies
+        ]);
+    }
+
+    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(string $id)
     {
-        //
+        $project = Project::with('technologies')->findOrFail($id);
+
+        $this->validate(request(), [
+            'name' => ['required', 'unique:projects,name,' . $id],
+            'type' => ['required', 'in:Web,Mobile,Desktop'],
+            'description' => ['required'],
+            'about' => ['required'],
+            'url' => ['nullable', 'url:https'],
+            'technologies' => ['required', "min:1"],
+            'technologies.*' => ['exists:technologies,id'],
+        ]);
+
+        $project->name = request('name');
+        $project->type = request('type');
+        $project->description = request('description');
+        $project->about = request('about');
+        $project->url = request('url');
+
+        $project->technologies()->detach($project->technologies->pluck('id')->toArray());
+        $project->technologies()->attach(request("technologies"));
+
+        $project->save();
+
+        return redirect()->route('project.show', $project->id);
     }
 
     /**
@@ -178,8 +237,17 @@ class ProjectController extends Controller
     public function destroy(string $id)
     {
         $project = Project::findOrFail($id);
-        $project->delete();
 
-        return response()->json($project);
+
+        $public_directory_path = "uploads/" . $project->name;
+
+        if (file_exists(public_path($public_directory_path))) {
+            File::delete($public_directory_path);
+        }
+
+        // $project->delete();
+
+
+        return redirect()->route('dashboard');
     }
 }

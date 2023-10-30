@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="col-md-10">
     <div class="card">
         <div class="card-body">
@@ -11,6 +10,7 @@
                 </h3>
                 <div>
                     <a href="{{ route('project.create') }}" class="btn btn-primary">
+                        <i class="bi bi-plus-lg"></i>
                         Create Project
                     </a>
                 </div>
@@ -21,8 +21,6 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Logo</th>
-                        <th scope="col">Banner</th>
                         <th scope="col">Technologies</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -32,14 +30,6 @@
                     <tr>
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->name }}</td>
-                        <td class="bg-primary">
-                            <img src="{{ $project->logo }}" width="70" height="70" style="object-fit: contain" />
-                        </td>
-                        <td>
-                            <button class="btn btn-outline-primary banner-btn" data-src="{{ $project->banner }}">
-                                Banner
-                            </button>
-                        </td>
                         <td>
                             @foreach ($project->technologies as $technology)
                             <a class="badge bg-primary text-white"
@@ -50,12 +40,19 @@
                         </td>
                         <td>
                             <form action="{{ route('project.destroy', $project->id) }}" action="DELETE">
-                                <a href="{{ route('project.show', $project->id) }}"
-                                    class="btn btn-sm btn-primary">Show</a>
-                                <a href="{{ route('project.edit', $project->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{{ route('project.show', $project->id) }}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-eye"></i>
+                                    Show
+                                </a>
+                                <a href="{{ route('project.edit', $project->id) }}" class="btn btn-sm btn-warning">
+                                    <i class="bi bi-pen"></i>
+                                    Edit
+                                </a>
                                 <button type="submit" href="{{ route('project.show', $project->id) }}"
-                                    class="btn btn-sm btn-danger">Delete</button>
+                                    class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                    Delete
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -66,8 +63,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Technologies</th>
-                        <th>Logo</th>
-                        <th>Banner</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
