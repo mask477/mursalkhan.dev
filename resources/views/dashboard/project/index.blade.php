@@ -5,7 +5,16 @@
 <div class="col-md-10">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">Projects</h3>
+            <div class="d-flex justify-content-between ">
+                <h3 class="card-title">
+                    Projects
+                </h3>
+                <div>
+                    <a href="{{ route('project.create') }}" class="btn btn-primary">
+                        Create Project
+                    </a>
+                </div>
+            </div>
 
             <table class="table table-hover table-striped table-bordered">
                 <thead>
