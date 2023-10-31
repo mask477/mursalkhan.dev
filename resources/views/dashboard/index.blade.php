@@ -6,11 +6,6 @@
         height: 100%;
         min-height: 30vh;
     }
-
-    /* .technologies-card .card-body {
-        max-height: 80vh;
-        overflow-y: auto;
-    } */
 </style>
 @endpush
 
@@ -19,7 +14,7 @@
     <div class="col-lg-8 col-md-6 col-sm-12">
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between ">
+                <div class="d-flex justify-content-between mb-3">
                     <h3 class="card-title m-0">
                         Projects
                     </h3>
@@ -30,7 +25,6 @@
                         </a>
                     </div>
                 </div>
-                <hr>
 
                 <div class="row g-2">
                     @foreach ($projects as $project)
@@ -47,21 +41,27 @@
                                         onsubmit="return confirm('Do you really want to delete this project?');">
                                         @csrf
                                         @method('delete')
-                                        <a href="{{ route('project.show', $project->id) }}"
-                                            class="btn btn-sm btn-primary">
-                                            <i class="bi bi-eye"></i>
-                                            Show
-                                        </a>
-                                        <a href="{{ route('project.edit', $project->id) }}"
-                                            class="btn btn-sm btn-warning">
-                                            <i class="bi bi-pen"></i>
-                                            Edit
-                                        </a>
-                                        <button type="submit" href="{{ route('project.show', $project->id) }}"
-                                            class="btn btn-sm btn-danger">
-                                            <i class="bi bi-trash"></i>
-                                            Delete
-                                        </button>
+                                        <div class="mb-3">
+                                            @foreach ($project->technologies as $technology)
+                                            <span class="badge bg-primary">{{ $technology->name }}</span>
+                                            @endforeach
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('project.show', $project->id) }}"
+                                                class="btn btn-sm btn-primary">
+                                                <i class="bi bi-eye"></i>
+                                                Show
+                                            </a>
+                                            <a href="{{ route('project.edit', $project->id) }}"
+                                                class="btn btn-sm btn-warning">
+                                                <i class="bi bi-pen"></i>
+                                                Edit
+                                            </a>
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="bi bi-trash"></i>
+                                                Delete
+                                            </button>
+                                        </div>
                                     </form>
                                 </div>
 
@@ -71,59 +71,6 @@
                     </div>
                     @endforeach
                 </div>
-                {{--
-                <table class="table table-hover table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Technologies</th>
-                            <th scope="col" width="35%">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($projects as $project)
-                        <tr>
-                            <td>{{ $project->id }}</td>
-                            <td>{{ $project->name }}</td>
-                            <td>
-                                @foreach ($project->technologies as $technology)
-                                <a class="badge bg-primary text-white"
-                                    href="{{ route('technology.show', $technology->id) }}">
-                                    <span>{{ $technology->name }}</span>
-                                </a>
-                                @endforeach
-                            </td>
-                            <td>
-                                <form action="{{ route('project.destroy', $project->id) }}" action="DELETE">
-                                    <a href="{{ route('project.show', $project->id) }}" class="btn btn-sm btn-primary">
-                                        <i class="bi bi-eye"></i>
-                                        Show
-                                    </a>
-                                    <a href="{{ route('project.edit', $project->id) }}" class="btn btn-sm btn-warning">
-                                        <i class="bi bi-pen"></i>
-                                        Edit
-                                    </a>
-                                    <button type="submit" href="{{ route('project.show', $project->id) }}"
-                                        class="btn btn-sm btn-danger">
-                                        <i class="bi bi-trash"></i>
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Technologies</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                --}}
             </div>
         </div>
     </div>
@@ -131,31 +78,47 @@
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="card technologies-card">
             <div class="card-body">
-                <div class="d-flex justify-content-between ">
+                <div class="d-flex justify-content-between mb-3">
                     <h3 class="card-title m-0">
                         Technologies
                     </h3>
                     <div>
-                        <a href="{{ route('project.create') }}" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#createTechnologyModal">
                             <i class="bi bi-plus-lg"></i>
-                            Create Project
-                        </a>
+                            Create Technology
+                        </button>
                     </div>
                 </div>
-
-                <hr>
 
                 <ul class="list-group">
                     @foreach ($technologies as $technology)
                     <li class="list-group-item">
-                        <div class="d-flex justify-content-between">
-                            <div>
+                        <div class="d-flex justify-content-between" title="{{ $technology->description }}">
+                            <div class="col">
                                 {{ $technology->name }}
+                                <span class="badge bg-primary">
+                                    {{ $technology->projects_count }}
+                                </span>
                             </div>
 
-                            <span class="badge bg-primary">
-                                {{ $technology->projects_count }}
-                            </span>
+                            <div class="col d-flex justify-content-end gap-1">
+
+                                <button class="btn btn-sm btn-warning btn-edit-technology"
+                                    data-technology="{{ json_encode($technology) }}">
+                                    <i class="bi bi-pen"></i>
+                                </button>
+
+                                <form action="{{ route('technology.destroy', $technology->id) }}" method="POST"
+                                    onsubmit="return confirm('Do you really want to delete this technology?');">
+                                    @csrf
+                                    @method('delete')
+
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </li>
                     @endforeach
@@ -164,4 +127,6 @@
         </div>
     </div>
 </div>
+@include('dashboard.technology.create_modal')
+@include('dashboard.technology.edit_modal')
 @endsection

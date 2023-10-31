@@ -242,10 +242,10 @@ class ProjectController extends Controller
         $public_directory_path = "uploads/" . $project->name;
 
         if (file_exists(public_path($public_directory_path))) {
-            File::delete($public_directory_path);
+            File::deleteDirectory($public_directory_path);
         }
 
-        // $project->delete();
+        $project->delete();
 
 
         return redirect()->route('dashboard');

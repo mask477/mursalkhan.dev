@@ -17,14 +17,16 @@
 
     img.banner {
         object-fit: cover;
-        width: 100%;
-        height: 200px;
+        width: 375px;
+        height: 400px;
+        border: 3px solid #acacac;
+        border-radius: 9px
     }
 
     .banner-placeholder,
     .images-placeholder {
         width: 100%;
-        height: 200px;
+        height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -100,11 +102,11 @@
                 Banner
             </h5>
             @if($project->banner)
-            <div class="bg-secondary mb-3">
+            <div class="mb-3">
                 <img src="{{ $project->banner }}" class="banner" alt="...">
             </div>
             @else
-            <div class="d-flex justify-content-center mb-3">
+            <div class="d-flex justify-content-center mb-3 bg-secondary">
                 <div class="banner-placeholder bg-secondary">
                     <span>Banner</span>
                 </div>

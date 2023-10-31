@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
@@ -11,7 +12,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        return redirect("dashboard");
     }
 
     /**
@@ -19,7 +20,6 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -27,7 +27,17 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "name" => ["required", "unique:technologies,name"],
+            "description" => ["required"]
+        ]);
+
+        $technoloogy = Technology::create([
+            "name" => $request->name,
+            "description" => $request->description
+        ]);
+
+        return redirect("dashboard");
     }
 
     /**
@@ -51,7 +61,17 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $technology = Technology::findOrFail($id);
+
+        $this->validate($request, [
+            "name" => ["required", "unique:technologies,name", "numeric"],
+            "description" => ["required", "numeric"]
+        ]);
+
+        $technology->name = $request->input('name');
+        $technology->description = $request->input('description');
+
+        return redirect('dashboard');
     }
 
     /**
@@ -59,6 +79,10 @@ class TechnologyController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $technology = Technology::findOrFail($id);
+
+        $technology->delete();
+
+        return redirect("dashboard");
     }
 }

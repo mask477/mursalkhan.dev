@@ -111,28 +111,6 @@
                     </div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label for="banner">Logo:</label>
-                    <input type="file" name="logo" class="form-control-file" id="logo" aria-describedby="logoHelp"
-                        placeholder="Enter logo">
-
-                    @error('logo')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="banner">Banner:</label>
-                    <input type="file" name="bannmer" class="form-control-file" id="bannmer"
-                        aria-describedby="bannmerHelp" placeholder="Enter bannmer">
-
-                    @error('banner')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div> --}}
                 <div class="mb-3">
                     <label for="url">URl:</label>
                     <input type="text" name="url" class="form-control @error('url') is-invalid @enderror" id="url"

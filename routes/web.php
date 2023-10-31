@@ -26,10 +26,12 @@ Route::get('/mynatur-react-dashboard', [App\Http\Controllers\HomeController::cla
 Auth::routes(['register' => false]);
 Route::middleware([Authenticate::class])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
+
     Route::resource('project', App\Http\Controllers\ProjectController::class);
     Route::post('project/{id}/upload_logo', [App\Http\Controllers\ProjectController::class, 'uploadLogo'])->name('project.uploadLogo');
     Route::post('project/{id}/upload_banner', [App\Http\Controllers\ProjectController::class, 'uploadBanner'])->name('project.uploadBanner');
     Route::post('project/{id}/upload_image', [App\Http\Controllers\ProjectController::class, 'uploadImage'])->name('project.uploadImage');
     Route::delete('project/{id}/remove_image', [App\Http\Controllers\ProjectController::class, 'removeImage'])->name('project.removeImage');
+
     Route::resource('technology', App\Http\Controllers\TechnologyController::class);
 });
