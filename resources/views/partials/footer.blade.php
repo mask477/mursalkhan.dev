@@ -62,7 +62,7 @@
                         </a>
                     </div>
                     <div class="inspiration">
-                        Inspired by <a href="https://www.codewonders.dev/">codewonders</a>
+                        Inspired by <a href="https://www.codewonders.dev/" target="_blank">codewonders</a>
                     </div>
                 </div>
             </div>
