@@ -33,7 +33,8 @@ ul.timeline {
             z-index: 400;
         }
 
-        a {
+        a,
+        h3 {
             @media (max-width: 989px) {
                 display: block;
                 margin-top: 5px;
@@ -44,6 +45,15 @@ ul.timeline {
                 text-decoration: underline;
                 font-size: calc(var(--font-sm) + 0.9px);
             }
+        }
+
+        h5 {
+            font-size: var(--font-md);
+            margin-top: 1rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
         }
     }
 }

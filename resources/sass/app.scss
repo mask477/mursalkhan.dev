@@ -58,6 +58,8 @@ h3,
 h4,
 h5 {
     font-family: "Open Sans", sans-serif;
+
+    animation: FadeIn 1s ease-in-out;
 }
 
 p,
@@ -67,12 +69,14 @@ input {
     text-rendering: geometricprecision;
     transition: all 1s;
     font-family: "Roboto", sans-serif;
+    animation: FadeIn 1s ease-in-out;
 }
 
 a {
+    transition: all 0.1s ease-in-out !important;
     &:hover {
         font-weight: bold;
-        transition: all 0.5s;
+        transition: all 0.1s ease-in-out !important;
         text-decoration: none;
     }
 }

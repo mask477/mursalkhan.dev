@@ -7,44 +7,116 @@
 <div title="About Me" class="page-bg-title">
     <h1 class="no-highlight" aria-hidden="true">About Me</h1>
 </div>
-<section class="page-section">
+<div class="page-section">
     <div class="main-content">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-md-10">
-                    <h1 class="title">About Me.</h1>
-                    <br>
-                    <article>
-                        <ul class="timeline">
-                            <li>
-                                <a target="_blank" rel="noopener noreferrer" aria-label="Open Github Link"
-                                    href="https://github.com/adenekan41">
-                                    Sorry, I'm in the process of updating this page at the moment.
 
-                                    {{-- <small>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                                            </path>
-                                        </svg>
-                                    </small> --}}
-                                </a>
-                                {{-- <a target="_blank" rel="noopener noreferrer" aria-label="Open Github Link"
-                                    id="cardHover" href="https://github.com/adenekan41" class="float-right">
-                                    View Github
-                                </a> --}}
-                                <p>In the meantime, please visit my <a
-                                        href="{{ route('projects') }}"><b>projects</b></a> page.
-                                </p>
-                            </li>
-                        </ul>
+        <section aria-label="You are now in my professional background section">
+            <div class="container mb-5">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-10">
+                        <h1 class="title">About Me.</h1>
+                        <br>
+                        <p>
+                            👋 Hello, I'm Mursal Khan, a highly skilled Full Stack Developer specializing in JavaScript,
+                            React,
+                            React Native, NestJS, Next.js, and Socket.io, with expertise in UI/UX, PHP, Laravel, and
+                            databases (MySQL, MongoDB, PostgreSQL). My focus is on high-quality, scalable web and mobile
+                            apps. I create user-friendly interfaces, implement complex features, and excel in real-time
+                            communication. Let's work together to bring your ideas to life!
+                        </p>
+                        <article>
+                            <ul class="timeline">
+                                <li>
+                                    <a target="_blank" rel="noopener noreferrer" aria-label="Open Markytech Link"
+                                        href="https://markytech.com/">
+                                        <h4>Cheif Technology Officer | MarkyTech</h4>
+                                    </a>
+                                    <h5>April 2022 - Present</h5>
+                                    <p>
+                                        Markytech is an all-in-one solution that provides you with all the things you
+                                        need:
+                                        social media marketing, web and mobile app development, and business
+                                        development.
+                                    </p>
+                                </li>
+                                <li>
+                                    <a target="_blank" rel="noopener noreferrer" aria-label="Open Consolidata Link"
+                                        href="https://consolidata.ai/">
+                                        <h4>Chief Technology Officer | Consolidata</h4>
+                                    </a>
+                                    <h5>April 2022 - Present</h5>
+                                    <p>
+                                        Agencies today use multiple tools to get their customers results. Unfortunately,
+                                        many agencies are still reliant on Google sheets and Excel for reporting due to
+                                        their flexibility with custom formulas.
+                                    </p>
+                                    <p>
+                                        Consolidata allows you to pull data from multiple ad platforms, Stripe, &
+                                        GoHighLevel to create beautiful flexible reports. Think of it like merging
+                                        spreadsheets and a funnel builder together.
+                                    </p>
+                                    <p>
+                                        Merge data such as Facebook Ad Spend with GoHighLevel Leads to get a true Cost
+                                        Per
+                                        Lead!
+                                    </p>
+                                </li>
+                                <li>
+                                    <a target="_blank" rel="noopener noreferrer" aria-label="Open Akvateq Link"
+                                        href="https://akvateq.com/">
+                                        <h4>Co-Founder & Chief Technology Officer | Akvateq</h4>
+                                    </a>
+                                    <h5>November 2021 - July 2022</h5>
+                                </li>
+                                <li>
+                                    <a target="_blank" rel="noopener noreferrer" aria-label="Open Sudoware Link"
+                                        href="https://sudoware.co/">
+                                        <h4>Co-Founder & Chief Operating Officer | Sudoware</h4>
+                                    </a>
+                                    <h5>April 2017 - August 2021</h5>
+                                </li>
+                                <li>
+                                    <h4>Graphic Designer | Edvolution</h4>
+                                    <h5>January 2016 - December 2016</h5>
+                                    <p>
+                                        As a part of my Social Internship, I was working at Edvolution as a Graphics
+                                        Designer.
+                                    </p>
+                                </li>
+                            </ul>
 
 
-                    </article>
+                        </article>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section aria-label="You are now in my educational background section">
+            <div class="container mb-5">
+
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-10">
+
+                        <h2 class="title">Education</h2>
+                        <br>
+
+                        <ul class="timeline">
+                            <li>
+                                <h3>School | St. Patrick's High School</h3>
+                                <h5>Year 2002 - 2012</h5>
+                            </li>
+                            <li>
+                                <h3>College | Defence Authority SKBZ College</h3>
+                                <h5>Year 2012 - 2014</h5>
+                            </li>
+                            <li>
+                                <h3>Graduation | Institute of Business Administration</h3>
+                                <h5>Year 2015 - 2018</h5>
+                            </li>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
+</div>
 @endsection
