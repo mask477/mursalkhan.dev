@@ -1,0 +1,63 @@
+@import "./theme.scss";
+@import "./animations.scss";
+
+article {
+    animation: FadeIn 0.5s ease-in-out;
+}
+
+.contact-form {
+    width: 60%;
+
+    @media (max-width: 989px) {
+        width: 100% !important;
+    }
+
+    input,
+    textarea {
+        background: transparent;
+        margin-bottom: 2rem;
+        resize: none;
+        box-shadow: none !important;
+        padding: 24px 21px !important;
+        animation: FadeIn 0.5s ease-in-out;
+        backdrop-filter: blur(10px);
+    }
+
+    .g-recaptcha {
+        margin-bottom: 2rem;
+        animation: FadeIn 1s ease-in-out;
+    }
+
+    button {
+        font-size: calc(var(--font-sm) + 1.1px);
+        border: none;
+        border-radius: 5px;
+        padding: 15px 40px;
+        margin-bottom: 3rem;
+        transition: filter 0.25s ease-in-out;
+        animation: FadeIn 0.5s ease-in-out;
+
+        &:hover {
+            transition: filter 0.25s ease-in-out;
+            filter: invert(100%);
+        }
+    }
+}
+
+@include themify($themes) {
+    .contact-form {
+        input,
+        textarea {
+            color: themed("cw") !important;
+            border-color: themed("border-color") !important;
+            &:focus {
+                background-color: themed("bg");
+                border-color: themed("cw") !important;
+            }
+        }
+        button {
+            background: themed("cw");
+            color: themed("bg");
+        }
+    }
+}

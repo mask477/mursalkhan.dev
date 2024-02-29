@@ -1,0 +1,90 @@
+@import "./theme.scss";
+
+nav.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding-block: 10px;
+    animation: FadeIn 1s ease-in-out;
+
+    @media (max-width: 989px) {
+        display: block;
+        white-space: nowrap;
+        overflow-x: auto;
+        margin: 0px auto;
+    }
+
+    .tab-list-item {
+        margin: 0px 1rem 0px 0px;
+        font-size: calc(var(--font-sm) + 0.9px);
+        transition: all 0.3s ease 0s;
+        background: transparent;
+        border: none;
+        border-radius: 5px;
+        padding: 0px 9px;
+
+        &.active {
+            padding: 5px 22px;
+            font-weight: 900 !important;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+
+            span.badge {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+}
+
+@include themify($themes) {
+    nav.tabs {
+        .tab-list-item {
+            color: themed("article-color");
+            transition: all 0.3s ease 0s;
+
+            &.active {
+                color: themed("bg");
+                background: themed("inverted") !important;
+
+                svg {
+                    fill: themed("bg");
+                    stroke: themed("bg");
+
+                    .fill2 {
+                        fill: themed("cw");
+                    }
+
+                    circle {
+                        fill: themed("bg");
+                    }
+                }
+
+                div {
+                    span.badge {
+                        color: themed("cw") !important;
+                        background-color: themed("bg") !important;
+                    }
+                }
+            }
+
+            div {
+                span.badge {
+                    color: themed("bg") !important;
+                    background-color: themed("article-color") !important;
+                }
+            }
+        }
+    }
+}

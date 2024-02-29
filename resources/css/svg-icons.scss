@@ -1,0 +1,10 @@
+@import "./theme.scss";
+
+@include themify($themes) {
+    .steam {
+        g {
+            stroke: themed("cw");
+            transition: all 1s ease;
+        }
+    }
+}

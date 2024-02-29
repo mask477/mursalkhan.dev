@@ -1,0 +1,137 @@
+@import "./theme.scss";
+@import "./animations.scss";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    cursor: default;
+
+    @media (min-width: 989px) {
+        cursor: none !important;
+    }
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    overflow-x: hidden;
+    min-height: 100vh;
+
+    &.light {
+        background-color: map-get(map-get($themes, "light"), "bg") !important;
+        background: linear-gradient(
+            -45deg,
+            map-get(map-get($themes, "light"), "bg"),
+            map-get(map-get($themes, "light"), "bg2")
+        );
+    }
+    &.dark {
+        background-color: map-get(map-get($themes, "dark"), "bg") !important;
+        background: linear-gradient(
+            -45deg,
+            map-get(map-get($themes, "dark"), "bg"),
+            map-get(map-get($themes, "dark"), "bg2")
+        );
+    }
+
+    main {
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            z-index: -1;
+            background-size: 94px 94px;
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Open Sans", sans-serif;
+}
+
+p,
+a,
+label,
+input {
+    text-rendering: geometricprecision;
+    transition: all 1s;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    &:hover {
+        font-weight: bold;
+        transition: all 0.5s;
+        text-decoration: none;
+    }
+}
+
+p {
+    font-size: 14.9px;
+    line-height: 2.3;
+    font-weight: 400;
+}
+
+@include themify($themes) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: themed("cw");
+        transition: all 1s;
+    }
+
+    p,
+    a,
+    label,
+    input {
+        color: themed("article-color");
+        transition: all 1s;
+    }
+
+    ::selection {
+        background: themed("inverted");
+        color: themed("bg");
+    }
+
+    main {
+        &::before {
+            background-image: linear-gradient(
+                    to right,
+                    rgba(113, 113, 113, 0.1) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(113, 113, 113, 0.1) 1px,
+                    transparent 1px
+                );
+        }
+    }
+}
+
+@import "./header.scss";
+@import "./cursor.scss";
+@import "./scrollbar.scss";
+@import "./tabs.scss";
+@import "./svg-icons.scss";
+@import "./sidebar-modal.scss";
+@import "./timeline.scss";
+@import "./splide.scss";
+@import "./footer.scss";
+@import "./pages.scss";
+@import "./homepage.scss";
+@import "./projects.scss";
+@import "./contact.scss";

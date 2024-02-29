@@ -1,0 +1,89 @@
+@import "./theme.scss";
+@import "./animations.scss";
+
+#footerContent {
+    footer {
+        background: transparent;
+        padding: 1rem 0px;
+
+        .next-page {
+            animation: FadeIn 0.5s ease-in-out;
+            svg {
+                margin-left: 1rem;
+                animation-name: ForwardAnimation;
+                animation-duration: 0.5s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+        }
+    }
+
+    .social-media {
+        animation: FadeIn 0.5s ease-in-out;
+        a {
+            transition: all 1s ease 0s;
+            cursor: pointer;
+            padding: 0px 12px;
+
+            &:first-child {
+                padding-left: 0px;
+            }
+
+            svg {
+                cursor: pointer;
+                height: 15px;
+                fill: var(--article-color);
+                transition: all 1s ease 0s;
+            }
+        }
+    }
+    @media (max-width: 992px) {
+        .social-media {
+            position: fixed;
+            backdrop-filter: blur(6px) saturate(2.5);
+            display: flex;
+            right: 0px;
+            z-index: 999;
+            -webkit-box-align: center;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100% !important;
+            padding: 0px !important;
+            flex-direction: row !important;
+            height: 60px !important;
+            bottom: 0px !important;
+        }
+    }
+}
+
+@include themify($themes) {
+    #footerContent {
+        footer {
+            .next-page {
+                a {
+                    color: themed("article-color");
+                    transition: all 1s;
+                }
+
+                svg {
+                    fill: themed("article-color");
+                    transition: all 1s;
+                }
+            }
+        }
+
+        .social-media {
+            a {
+                svg {
+                    fill: themed("article-color");
+                }
+            }
+        }
+
+        @media (max-width: 992px) {
+            .social-media {
+                background: themed("gray-alpha") !important;
+            }
+        }
+    }
+}

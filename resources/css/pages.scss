@@ -1,0 +1,46 @@
+@import "./theme.scss";
+@import "./animations.scss";
+
+.page-section {
+    h1.title {
+        font-size: var(--font-x-lg);
+        font-weight: 800;
+        margin: 4rem 0rem 1.5rem;
+        position: relative;
+        animation: FadeIn 1s ease-in-out;
+    }
+}
+
+.page-bg-title {
+    h1 {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Abril FatFace";
+        font-size: 29.42vmin;
+        writing-mode: unset;
+        letter-spacing: -0.3rem;
+        white-space: pre;
+        position: fixed;
+        left: -4rem;
+        opacity: 1;
+        z-index: -1;
+        bottom: 0px;
+        transition: all 1s;
+        animation: FadeIn 0.5s ease-in-out;
+    }
+    &.verticle {
+        h1 {
+            writing-mode: tb-rl;
+        }
+    }
+}
+
+@include themify($themes) {
+    .page-bg-title {
+        h1 {
+            color: themed("mark");
+            transition: all 1s;
+            user-select: none;
+        }
+    }
+}

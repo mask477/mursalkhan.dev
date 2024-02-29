@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/mynatur/dashboard/static/css/main.17909127.css",
+    "main.js": "/mynatur/dashboard/static/js/main.a493138c.js",
+    "static/media/PingFangSCRegular.ttf": "/mynatur/dashboard/static/media/PingFangSCRegular.8c5ef44dbcdd07d8e5ba.ttf",
+    "static/media/pets.svg": "/mynatur/dashboard/static/media/pets.3873eac32acf1762cc2e6e64cfe26132.svg",
+    "static/media/signup-house.svg": "/mynatur/dashboard/static/media/signup-house.ab21c2f7509b4250848105054b55fcfd.svg",
+    "static/media/air-travel.svg": "/mynatur/dashboard/static/media/air-travel.7576c76eb54f2dff4e70fd259377282b.svg",
+    "static/media/offset.svg": "/mynatur/dashboard/static/media/offset.bbd2558d7b5bef691410dbe54353a82d.svg",
+    "static/media/insights.svg": "/mynatur/dashboard/static/media/insights.aa544fe58a6b6155148dc8a41c9a0220.svg",
+    "static/media/meat.svg": "/mynatur/dashboard/static/media/meat.0ab63bcae56b2cc7a5a1c211fbfa0a44.svg",
+    "static/media/dairy-food.svg": "/mynatur/dashboard/static/media/dairy-food.c1b8f70254e4914c08e71ba8f7c2e1f6.svg",
+    "static/media/logo-black.svg": "/mynatur/dashboard/static/media/logo-black.c33d7d3928fb1bdfb6d00287b633ed69.svg",
+    "static/media/logo.svg": "/mynatur/dashboard/static/media/logo.0b21f1284e7cfb71a233217cfa473eba.svg",
+    "static/media/shopping.svg": "/mynatur/dashboard/static/media/shopping.8e446326ce5745db48f2b47a205f36ba.svg",
+    "static/media/footprint.svg": "/mynatur/dashboard/static/media/footprint.8e4fc4d091a72e1e677627a9551089c7.svg",
+    "static/media/sea-food.svg": "/mynatur/dashboard/static/media/sea-food.db266c02928146ce0c5f5f92303e03c3.svg",
+    "static/media/house.svg": "/mynatur/dashboard/static/media/house.a830afce89c6bcd62f27970ec96ad805.svg",
+    "static/media/location.svg": "/mynatur/dashboard/static/media/location.39ac18d6b4231b7fb69c85466d979e22.svg",
+    "static/media/road-travel.svg": "/mynatur/dashboard/static/media/road-travel.fe1b290bc571fde742dde8e902944a15.svg",
+    "static/media/co2.svg": "/mynatur/dashboard/static/media/co2.4d70d9f6c8356d3d815219df8b6c0097.svg",
+    "static/media/fuel-consumption.svg": "/mynatur/dashboard/static/media/fuel-consumption.b50ee639255634570fd02f224b5eb71a.svg",
+    "static/media/tree-3.svg": "/mynatur/dashboard/static/media/tree-3.d5f555a25959cb2adc086e5f3bf6678d.svg",
+    "static/media/tree-2.svg": "/mynatur/dashboard/static/media/tree-2.c26cbe3aaf987f2cd732a716eff8fc99.svg",
+    "static/media/signup-house-leaf.svg": "/mynatur/dashboard/static/media/signup-house-leaf.945e558ed3736a5608f170a9979d49e6.svg",
+    "static/media/bank.svg": "/mynatur/dashboard/static/media/bank.335e06c89d8a67fc8b3bfd9978bab947.svg",
+    "static/media/donation.svg": "/mynatur/dashboard/static/media/donation.bb14ab67cadb50942b3bb41ffc7409a6.svg",
+    "static/media/tree-1.svg": "/mynatur/dashboard/static/media/tree-1.ae5d46d2d3ac93d3f88131eaba19201c.svg",
+    "index.html": "/mynatur/dashboard/index.html",
+    "static/media/foundation.svg": "/mynatur/dashboard/static/media/foundation.dac222919fb8d8b5e7c5363626cf41c0.svg",
+    "static/media/home.svg": "/mynatur/dashboard/static/media/home.d28d4fc51d2b0de8fad8db269f817451.svg",
+    "static/media/feed.svg": "/mynatur/dashboard/static/media/feed.50e4a95ede851a80aae1e2f98493a15e.svg",
+    "main.17909127.css.map": "/mynatur/dashboard/static/css/main.17909127.css.map",
+    "main.a493138c.js.map": "/mynatur/dashboard/static/js/main.a493138c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17909127.css",
+    "static/js/main.a493138c.js"
+  ]
+}
